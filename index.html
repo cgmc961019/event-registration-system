@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EventPulse 活動通 — 活動／講座／工作坊雲端報名系統</title>
-  <meta name="description" content="結合 GitHub + Vercel + Supabase 打造的現代活動講座報名平台，支援自訂報名表單、匯款回報審核與現場 QR Code 電子票券報到。" />
+  <title>EventPulse 瘣餃?????瘣餃?嚗?摨改?撌乩??蝡臬?頂蝯?/title>
+  <meta name="description" content="蝯? GitHub + Vercel + Supabase ???曆誨瘣餃?雓漣?勗?撟喳嚗?渲閮?”?柴甈曉??勗祟?貉??曉 QR Code ?餃?蟡典?勗?? />
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- HTML5 QR Code Scanner -->
@@ -21,10 +21,10 @@
 </head>
 <body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col selection:bg-indigo-600 selection:text-white">
 
-  <!-- 頂部導覽列 -->
+  <!-- ?撠汗??-->
   <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
-      <!-- 品牌 Logo -->
+      <!-- ?? Logo -->
       <div class="flex items-center gap-6">
         <button onclick="window.app.navigateTo('explore')" class="flex items-center gap-2.5 text-left group">
           <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center font-extrabold text-lg shadow-sm shadow-indigo-200">
@@ -32,74 +32,2308 @@
           </div>
           <div>
             <div class="font-extrabold text-base tracking-tight text-slate-900 group-hover:text-indigo-600 transition">
-              EventPulse <span class="text-indigo-600">活動通</span>
+              EventPulse <span class="text-indigo-600">瘣餃???/span>
             </div>
-            <div class="text-[10px] text-slate-400 font-medium -mt-0.5">雲端活動與工作坊報名系統</div>
+            <div class="text-[10px] text-slate-400 font-medium -mt-0.5">?脩垢瘣餃??極雿??勗?蝟餌絞</div>
           </div>
         </button>
 
-        <!-- 主選單 -->
+        <!-- 銝駁??-->
         <nav class="hidden md:flex items-center gap-1">
           <button data-nav-view="explore" onclick="window.app.navigateTo('explore')" class="px-3.5 py-2 rounded-lg text-sm font-semibold bg-indigo-50 text-indigo-700 transition">
-            探索活動
+            ?Ｙ揣瘣餃?
           </button>
           <button data-nav-view="my-tickets" onclick="window.app.navigateTo('my-tickets')" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-50 transition">
-            我的票券與報名
-          </button>
+            ??蟡典???          </button>
           <button data-nav-view="admin" onclick="window.app.navigateTo('admin')" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-50 transition">
-            主辦方管理後台
-          </button>
+            銝餉齒?寧恣????          </button>
           <button data-nav-view="checkin" onclick="window.app.navigateTo('checkin')" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-50 transition">
-            現場 QR 報到台
-          </button>
+            ?曉 QR ?勗??          </button>
         </nav>
       </div>
 
-      <!-- 會員登入狀態區 -->
+      <!-- ??餃??? -->
       <div id="nav-user-actions" class="flex items-center gap-2"></div>
     </div>
 
-    <!-- 手機版次選單 -->
+    <!-- ???活?詨 -->
     <div class="md:hidden flex items-center justify-around border-t border-slate-100 bg-white px-2 py-1.5 text-xs">
-      <button data-nav-view="explore" onclick="window.app.navigateTo('explore')" class="px-2.5 py-1.5 rounded-lg font-semibold">探索活動</button>
-      <button data-nav-view="my-tickets" onclick="window.app.navigateTo('my-tickets')" class="px-2.5 py-1.5 rounded-lg font-medium">我的票券</button>
-      <button data-nav-view="admin" onclick="window.app.navigateTo('admin')" class="px-2.5 py-1.5 rounded-lg font-medium">管理後台</button>
-      <button data-nav-view="checkin" onclick="window.app.navigateTo('checkin')" class="px-2.5 py-1.5 rounded-lg font-medium">QR 報到台</button>
+      <button data-nav-view="explore" onclick="window.app.navigateTo('explore')" class="px-2.5 py-1.5 rounded-lg font-semibold">?Ｙ揣瘣餃?</button>
+      <button data-nav-view="my-tickets" onclick="window.app.navigateTo('my-tickets')" class="px-2.5 py-1.5 rounded-lg font-medium">??蟡典</button>
+      <button data-nav-view="admin" onclick="window.app.navigateTo('admin')" class="px-2.5 py-1.5 rounded-lg font-medium">蝞∠?敺</button>
+      <button data-nav-view="checkin" onclick="window.app.navigateTo('checkin')" class="px-2.5 py-1.5 rounded-lg font-medium">QR ?勗??/button>
     </div>
   </header>
 
-  <!-- 主內容渲染容器 -->
+  <!-- 銝餃摰寞葡?捆??-->
   <main id="app-root" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <div class="py-24 text-center">
       <div class="inline-block w-8 h-8 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin mb-3"></div>
-      <p class="text-sm text-slate-500">正在連線至 Supabase 雲端資料庫載入活動資料...</p>
+      <p class="text-sm text-slate-500">甇??????Supabase ?脩垢鞈?摨怨??交暑????..</p>
     </div>
   </main>
 
-  <!-- 頁尾 -->
+  <!-- ?偏 -->
   <footer class="bg-white border-t border-slate-200/80 mt-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
       <div>
-        <strong class="text-slate-800">EventPulse 活動通報名系統</strong> — Powered by GitHub + Vercel + Supabase (ap-northeast-1)
+        <strong class="text-slate-800">EventPulse 瘣餃???頂蝯?/strong> ??Powered by GitHub + Vercel + Supabase (ap-northeast-1)
       </div>
       <div class="flex gap-4">
-        <button onclick="window.app.navigateTo('explore')" class="hover:text-indigo-600">公開活動首頁</button>
-        <button onclick="window.app.navigateTo('my-tickets')" class="hover:text-indigo-600">學員票券中心</button>
-        <button onclick="window.app.navigateTo('admin')" class="hover:text-indigo-600">後台活動上下架</button>
-        <button onclick="window.app.navigateTo('checkin')" class="hover:text-indigo-600">QR Code 現場核銷</button>
+        <button onclick="window.app.navigateTo('explore')" class="hover:text-indigo-600">?祇?瘣餃?擐?</button>
+        <button onclick="window.app.navigateTo('my-tickets')" class="hover:text-indigo-600">摮詨蟡典銝剖?</button>
+        <button onclick="window.app.navigateTo('admin')" class="hover:text-indigo-600">敺瘣餃?銝???/button>
+        <button onclick="window.app.navigateTo('checkin')" class="hover:text-indigo-600">QR Code ?曉?賊</button>
       </div>
     </div>
   </footer>
 
-  <!-- 通用 Modal 彈窗 -->
+  <!-- ? Modal 敶? -->
   <div id="modal-backdrop" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 backdrop-blur-sm p-4">
     <div id="modal-box" class="bg-white rounded-3xl shadow-2xl border border-slate-200 w-full max-w-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200"></div>
   </div>
 
-  <!-- Toast 通知容器 -->
+  <!-- Toast ?摰孵 -->
   <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm"></div>
 
-  <!-- 主應用程式邏輯 -->
-  <script type="module" src="./js/app.js"></script>
+  <!-- 銝餅??函?撘?頛?-->
+  <script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.49.1';
+import QRCode from 'https://esm.sh/qrcode@1.5.4';
+const SUPABASE_CONFIG = { url: 'https://jagzybbhxnkmlwmplvda.supabase.co', publishableKey: 'sb_publishable_HAhwjnBi3Yf5aZb9Efjp4g_igZ8brHV', anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImphZ3p5YmJoeG5rbWx3bXBsdmRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM0ODk4NDAsImV4cCI6MjEwOTA2NTg0MH0.Pcio5uOpE4vAZj5uMh9PRvLU5YyDnuMW7YA8n3IPTAA' };
+
+// ????Supabase Client
+const supabase = createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.anonKey);
+
+// ?典???恣??const state = {
+  currentView: 'explore', // 'explore' | 'event-detail' | 'my-tickets' | 'admin' | 'checkin'
+  adminTab: 'events',     // 'events' | 'registrations'
+  user: null,
+  profile: null,
+  events: [],
+  selectedEvent: null,
+  selectedTicketId: null,
+  myRegistrations: [],
+  adminRegistrations: [],
+  searchQuery: '',
+  selectedCategory: '?券',
+  adminEventFilter: 'all',
+  adminStatusFilter: 'all',
+  editingEvent: null,
+  qrScanner: null,
+  scannerRunning: false
+};
+
+// 撌亙?賢?嚗撘??交???
+function formatDateTime(isoStr) {
+  if (!isoStr) return '';
+  const d = new Date(isoStr);
+  return d.toLocaleString('zh-TW', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  });
+}
+
+function formatDateShort(isoStr) {
+  if (!isoStr) return '';
+  const d = new Date(isoStr);
+  return d.toLocaleDateString('zh-TW', {
+    month: 'short',
+    day: 'numeric',
+    weekday: 'short'
+  });
+}
+
+function formatCurrency(num) {
+  if (!num || num === 0) return '?祥?亙';
+  return `NT$ ${Number(num).toLocaleString('zh-TW')}`;
+}
+
+function escapeHtml(str) {
+  if (str === null || str === undefined) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+export function showToast(message, type = 'success') {
+  const container = document.getElementById('toast-container');
+  if (!container) return;
+  const el = document.createElement('div');
+  const bgMap = {
+    success: 'bg-indigo-600 text-white border-indigo-500',
+    error: 'bg-rose-600 text-white border-rose-500',
+    info: 'bg-slate-800 text-white border-slate-700'
+  };
+  el.className = `px-4 py-3 rounded-xl shadow-lg border text-sm font-medium flex items-center gap-2 transition-all duration-300 transform translate-y-0 ${bgMap[type] || bgMap.info}`;
+  el.innerHTML = `<span>${escapeHtml(message)}</span>`;
+  container.appendChild(el);
+  setTimeout(() => {
+    el.classList.add('opacity-0', 'translate-y-2');
+    setTimeout(() => el.remove(), 300);
+  }, 3500);
+}
+
+// ============================================================================
+// 1. 隤????∟?????// ============================================================================
+async function loadSessionAndProfile() {
+  const { data: { session } } = await supabase.auth.getSession();
+  state.user = session?.user || null;
+  if (state.user) {
+    await ensureProfile();
+  } else {
+    state.profile = null;
+  }
+  renderNavbar();
+}
+
+async function ensureProfile() {
+  if (!state.user) return;
+  const { data, error } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', state.user.id)
+    .maybeSingle();
+
+  if (data) {
+    state.profile = data;
+  } else if (!error) {
+    const fallbackName = state.user.user_metadata?.full_name || state.user.email?.split('@')[0] || '摮詨';
+    const { data: inserted } = await supabase
+      .from('profiles')
+      .insert({
+        id: state.user.id,
+        email: state.user.email || '',
+        full_name: fallbackName,
+        phone: state.user.user_metadata?.phone || '',
+        organization: state.user.user_metadata?.organization || '',
+        role: 'admin'
+      })
+      .select('*')
+      .single();
+    state.profile = inserted;
+  }
+}
+
+// ============================================================================
+// 2. 鞈?霈??(瘣餃??巨蝔柴?????啣????
+// ============================================================================
+export async function fetchEvents() {
+  const { data, error } = await supabase
+    .from('events')
+    .select('*, ticket_types(*)')
+    .order('start_time', { ascending: true });
+
+  if (error) {
+    showToast('頛瘣餃?憭望?嚗? + error.message, 'error');
+    return;
+  }
+
+  state.events = (data || []).map(ev => ({
+    ...ev,
+    ticket_types: (ev.ticket_types || []).sort((a, b) => a.sort_order - b.sort_order)
+  }));
+
+  if (state.selectedEvent) {
+    const updated = state.events.find(e => e.id === state.selectedEvent.id);
+    if (updated) state.selectedEvent = updated;
+  }
+  renderMainView();
+}
+
+export async function fetchMyRegistrations() {
+  if (!state.user) {
+    state.myRegistrations = [];
+    return;
+  }
+  const { data, error } = await supabase
+    .from('registrations')
+    .select('*, events(*), ticket_types(*)')
+    .eq('user_id', state.user.id)
+    .order('created_at', { ascending: false });
+
+  if (!error && data) {
+    state.myRegistrations = data;
+  }
+}
+
+export async function fetchAdminRegistrations() {
+  if (!state.user) return;
+  const { data, error } = await supabase
+    .from('registrations')
+    .select('*, events(id, title, slug, custom_fields), ticket_types(id, name, price)')
+    .order('created_at', { ascending: false });
+
+  if (!error && data) {
+    state.adminRegistrations = data;
+  }
+}
+
+// ============================================================================
+// 3. ?恍????閬賢?皜脫?
+// ============================================================================
+export async function navigateTo(view, slug = null) {
+  if (state.scannerRunning && view !== 'checkin') {
+    await stopQrScanner();
+  }
+
+  state.currentView = view;
+  if (view === 'event-detail' && slug) {
+    const ev = state.events.find(e => e.slug === slug || e.id === slug);
+    if (ev) {
+      state.selectedEvent = ev;
+      state.selectedTicketId = ev.ticket_types?.[0]?.id || null;
+    }
+  } else if (view === 'my-tickets') {
+    await fetchMyRegistrations();
+  } else if (view === 'admin' || view === 'checkin') {
+    await Promise.all([fetchEvents(), fetchAdminRegistrations()]);
+  }
+
+  renderNavbar();
+  renderMainView();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderNavbar() {
+  const navActions = document.getElementById('nav-user-actions');
+  const navLinks = document.querySelectorAll('[data-nav-view]');
+
+  navLinks.forEach(btn => {
+    const v = btn.getAttribute('data-nav-view');
+    if (v === state.currentView || (v === 'explore' && state.currentView === 'event-detail')) {
+      btn.className = 'px-3.5 py-2 rounded-lg text-sm font-semibold bg-indigo-50 text-indigo-700 transition';
+    } else {
+      btn.className = 'px-3.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-50 transition';
+    }
+  });
+
+  if (!navActions) return;
+  if (state.user) {
+    const displayName = state.profile?.full_name || state.user.email.split('@')[0];
+    navActions.innerHTML = `
+      <div class="flex items-center gap-2">
+        <button onclick="window.app.openProfileModal()" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-semibold transition">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span>${escapeHtml(displayName)}</span>
+          <span class="px-1.5 py-0.5 bg-indigo-600 text-white rounded text-[10px]">蝞∠????</span>
+        </button>
+        <button onclick="window.app.signOut()" class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition">
+          ?餃
+        </button>
+      </div>
+    `;
+  } else {
+    navActions.innerHTML = `
+      <div class="flex items-center gap-2">
+        <button onclick="window.app.openAuthModal('login')" class="px-4 py-2 rounded-xl text-sm font-semibold text-indigo-600 hover:bg-indigo-50 transition">
+          ??餃
+        </button>
+        <button onclick="window.app.openAuthModal('signup')" class="px-4 py-2 rounded-xl text-sm font-semibold bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm shadow-indigo-200 transition">
+          ?祥閮餃?
+        </button>
+      </div>
+    `;
+  }
+}
+
+function renderMainView() {
+  const container = document.getElementById('app-root');
+  if (!container) return;
+
+  switch (state.currentView) {
+    case 'explore':
+      container.innerHTML = renderExploreView();
+      break;
+    case 'event-detail':
+      container.innerHTML = renderEventDetailView();
+      break;
+    case 'my-tickets':
+      container.innerHTML = renderMyTicketsView();
+      break;
+    case 'admin':
+      container.innerHTML = renderAdminView();
+      break;
+    case 'checkin':
+      container.innerHTML = renderCheckinView();
+      break;
+    default:
+      container.innerHTML = renderExploreView();
+  }
+}
+
+// ============================================================================
+// 4. ?祇??嚗蝝Ｘ暑??銵?(Explore View)
+// ============================================================================
+function renderExploreView() {
+  const categories = ['?券', '雓漣', '撌乩???, '隤脩?', '隢?', '蝷曄黎??'];
+  const visibleEvents = state.events.filter(ev => {
+    if (ev.status === 'draft') return false;
+    const matchCat = state.selectedCategory === '?券' || ev.category === state.selectedCategory;
+    const q = state.searchQuery.trim().toLowerCase();
+    const matchQuery = !q ||
+      ev.title.toLowerCase().includes(q) ||
+      ev.subtitle.toLowerCase().includes(q) ||
+      ev.location.toLowerCase().includes(q) ||
+      ev.speaker_name.toLowerCase().includes(q);
+    return matchCat && matchQuery;
+  });
+
+  return `
+    <!-- Hero 閬死? -->
+    <section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-950 via-indigo-900 to-blue-900 text-white p-8 md:p-12 mb-10 shadow-xl">
+      <div class="relative z-10 max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-200 text-xs font-semibold mb-4">
+          <span>GitHub + Vercel + Supabase ?脩垢?單??勗?蝟餌絞</span>
+        </div>
+        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight mb-4">
+          ?Ｙ揣蝎曉蔗雓漣?祕?啣極雿?
+        </h1>
+        <p class="text-indigo-100/90 text-base md:text-lg mb-8 leading-relaxed">
+          銝蝡?摰?瘣餃?蝺??勗????∠巨憭曄恣?甈曉??勗祟?貉??曉 QR Code 敹恍摮偷?啜?        </p>
+
+        <!-- ????-->
+        <div class="flex flex-col sm:flex-row gap-3 bg-white/10 backdrop-blur-md p-2 rounded-2xl border border-white/15">
+          <input
+            type="text"
+            placeholder="??瘣餃??迂??撣急??圈??摮?.."
+            value="${escapeHtml(state.searchQuery)}"
+            oninput="window.app.setSearchQuery(this.value)"
+            class="flex-1 bg-transparent px-4 py-2.5 text-white placeholder-indigo-200/70 focus:outline-none text-sm"
+          />
+          <button onclick="window.app.setSearchQuery('')" class="px-5 py-2.5 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-white font-semibold text-sm transition">
+            ??瘣餃?
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ??蝭拚??-->
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+      <div class="flex flex-wrap items-center gap-2">
+        ${categories.map(cat => `
+          <button
+            onclick="window.app.setCategory('${cat}')"
+            class="px-4 py-2 rounded-xl text-sm font-semibold transition ${
+              state.selectedCategory === cat
+                ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-200'
+                : 'bg-white text-slate-600 border border-slate-200 hover:border-indigo-300 hover:text-indigo-600'
+            }"
+          >
+            ${cat}
+          </button>
+        `).join('')}
+      </div>
+      <div class="text-sm text-slate-500">
+        ?望??<span class="font-bold text-indigo-600">${visibleEvents.length}</span> ?湧??暹暑??      </div>
+    </div>
+
+    <!-- 瘣餃??∠?蝬脫 -->
+    ${visibleEvents.length === 0 ? `
+      <div class="bg-white rounded-3xl border border-slate-200 p-12 text-center">
+        <p class="text-slate-500 text-base mb-4">?曆??啁泵??隞嗥?瘣餃?</p>
+        <button onclick="window.app.resetFilter()" class="px-4 py-2 rounded-xl bg-indigo-50 text-indigo-600 font-semibold text-sm">
+          ?身蝭拚璇辣
+        </button>
+      </div>
+    ` : `
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        ${visibleEvents.map(ev => renderEventCard(ev)).join('')}
+      </div>
+    `}
+  `;
+}
+
+function renderEventCard(ev) {
+  const tickets = ev.ticket_types || [];
+  const prices = tickets.map(t => t.price);
+  const minPrice = prices.length ? Math.min(...prices) : 0;
+  const totalQuota = tickets.reduce((acc, t) => acc + (t.quota || 0), 0);
+  const totalReg = tickets.reduce((acc, t) => acc + (t.registered_count || 0), 0);
+  const remaining = Math.max(0, totalQuota - totalReg);
+  const progressPct = totalQuota > 0 ? Math.min(100, Math.round((totalReg / totalQuota) * 100)) : 0;
+
+  return `
+    <article class="group bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-300 flex flex-col">
+      <div class="relative h-48 overflow-hidden bg-slate-100">
+        <img
+          src="${escapeHtml(ev.cover_image_url || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=80')}"
+          alt="${escapeHtml(ev.title)}"
+          class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+        />
+        <div class="absolute top-3 left-3 flex gap-2">
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-600/90 text-white backdrop-blur-sm">
+            ${escapeHtml(ev.category)}
+          </span>
+          ${ev.is_featured ? `
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-400 text-slate-950">
+              蝎暸?刻
+            </span>
+          ` : ''}
+        </div>
+        <div class="absolute bottom-3 right-3">
+          <span class="px-3 py-1 rounded-lg text-xs font-bold bg-slate-900/80 text-white backdrop-blur-sm">
+            ${minPrice === 0 ? '?祥?勗?' : `${formatCurrency(minPrice)} 韏戡}
+          </span>
+        </div>
+      </div>
+
+      <div class="p-6 flex-1 flex flex-col">
+        <div class="text-xs font-semibold text-indigo-600 mb-1.5 flex items-center gap-1.5">
+          <span>?? ${formatDateTime(ev.start_time)}</span>
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition line-clamp-2 mb-2">
+          ${escapeHtml(ev.title)}
+        </h3>
+        <p class="text-xs text-slate-500 line-clamp-2 mb-4 flex-1">
+          ${escapeHtml(ev.subtitle || ev.description)}
+        </p>
+
+        <div class="text-xs text-slate-600 space-y-1 mb-4 pt-3 border-t border-slate-100">
+          <div class="truncate">?? ${escapeHtml(ev.location)}</div>
+          ${ev.speaker_name ? `<div class="truncate">??儭?雓葦嚗?{escapeHtml(ev.speaker_name)}</div>` : ''}
+        </div>
+
+        <!-- ???脣漲璇?-->
+        <div class="mb-4">
+          <div class="flex justify-between text-xs mb-1">
+            <span class="text-slate-500">撌脣??${totalReg} / ${totalQuota} ??/span>
+            <span class="font-semibold ${remaining <= 5 ? 'text-rose-600' : 'text-indigo-600'}">
+              ${remaining > 0 ? `?拚? ${remaining} ??` : '??撌脫遛'}
+            </span>
+          </div>
+          <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+            <div class="h-full bg-indigo-600 rounded-full transition-all" style="width: ${progressPct}%"></div>
+          </div>
+        </div>
+
+        <button
+          onclick="window.app.navigateTo('event-detail', '${escapeHtml(ev.slug)}')"
+          class="w-full py-2.5 px-4 rounded-xl font-semibold text-sm transition ${
+            ev.status === 'closed' || remaining === 0
+              ? 'bg-slate-100 text-slate-500'
+              : 'bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm shadow-indigo-100'
+          }"
+        >
+          ${ev.status === 'closed' ? '?勗?撌脫甇? : remaining === 0 ? '瑼Ｚ?閰單?嚗歇憿遛嚗? : '蝡?亦??????}
+        </button>
+      </div>
+    </article>
+  `;
+}
+
+// ============================================================================
+// 5. 瘣餃?閰單????”?桀?? (Event Detail & Registration Form)
+// ============================================================================
+function renderEventDetailView() {
+  const ev = state.selectedEvent;
+  if (!ev) return `<div class="p-12 text-center">?曆??啗府瘣餃?</div>`;
+
+  const tickets = ev.ticket_types || [];
+  const selectedTicket = tickets.find(t => t.id === state.selectedTicketId) || tickets[0];
+  const customFields = Array.isArray(ev.custom_fields) ? ev.custom_fields : [];
+
+  const prefillName = state.profile?.full_name || '';
+  const prefillEmail = state.profile?.email || state.user?.email || '';
+  const prefillPhone = state.profile?.phone || '';
+  const prefillOrg = state.profile?.organization || '';
+
+  return `
+    <div class="mb-6">
+      <button onclick="window.app.navigateTo('explore')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-600 hover:text-indigo-600 transition">
+        ??餈?瘣餃??”
+      </button>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <!-- 撌行?嚗暑?底蝝唬?蝝?-->
+      <div class="lg:col-span-7 space-y-6">
+        <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
+          <img
+            src="${escapeHtml(ev.cover_image_url || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80')}"
+            alt="${escapeHtml(ev.title)}"
+            class="w-full h-64 md:h-80 object-cover"
+          />
+          <div class="p-6 md:p-8">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 text-indigo-700">${escapeHtml(ev.category)}</span>
+              <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600">瘣餃????${ev.status === 'published' ? '??勗?銝? : '撌脫甇?}</span>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">${escapeHtml(ev.title)}</h1>
+            <p class="text-slate-600 text-base mb-6">${escapeHtml(ev.subtitle)}</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100 mb-6 text-sm">
+              <div>
+                <div class="text-xs font-semibold text-slate-400 uppercase mb-1">瘣餃???</div>
+                <div class="font-semibold text-slate-800">${formatDateTime(ev.start_time)}</div>
+                <div class="text-xs text-slate-500">??${formatDateTime(ev.end_time)}</div>
+              </div>
+              <div>
+                <div class="text-xs font-semibold text-slate-400 uppercase mb-1">瘣餃??圈?</div>
+                <div class="font-semibold text-slate-800">${escapeHtml(ev.location)}</div>
+                <div class="text-xs text-slate-500">${escapeHtml(ev.location_address)}</div>
+              </div>
+            </div>
+
+            <h2 class="text-lg font-bold text-slate-900 mb-3">瘣餃??批捆?降蝔?蝝?/h2>
+            <div class="prose prose-slate max-w-none text-slate-700 text-sm leading-relaxed whitespace-pre-line mb-8">${escapeHtml(ev.description)}</div>
+
+            ${ev.speaker_name ? `
+              <div class="p-5 rounded-2xl bg-indigo-50/60 border border-indigo-100">
+                <div class="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-1">銝餉?鈭箄?閮?/div>
+                <div class="text-base font-bold text-slate-900">${escapeHtml(ev.speaker_name)} <span class="text-xs font-medium text-slate-500 ml-1">${escapeHtml(ev.speaker_title)}</span></div>
+                <p class="text-xs text-slate-600 mt-2 leading-relaxed">${escapeHtml(ev.speaker_bio)}</p>
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      </div>
+
+      <!-- ?單?嚗?巨蝔株?憛怠神?勗?銵典 -->
+      <div class="lg:col-span-5">
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 md:p-8 shadow-sm sticky top-24">
+          <h2 class="text-xl font-extrabold text-slate-900 mb-1">蝺??勗?憛怨”</h2>
+          <p class="text-xs text-slate-500 mb-6">?豢?蟡函車銝血‵撖怠??閮??敺?舀???巨?詻?????餃?蟡典</p>
+
+          <!-- 1. ?豢?蟡函車 -->
+          <div class="space-y-3 mb-6">
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">1. ?豢??勗?蟡函車</label>
+            ${tickets.map(t => {
+              const rem = Math.max(0, t.quota - t.registered_count);
+              const isSelected = selectedTicket && selectedTicket.id === t.id;
+              return `
+                <div
+                  onclick="${rem > 0 ? `window.app.selectTicket('${t.id}')` : ''}"
+                  class="p-4 rounded-2xl border-2 transition cursor-pointer ${
+                    rem === 0
+                      ? 'border-slate-100 bg-slate-50 opacity-60 cursor-not-allowed'
+                      : isSelected
+                        ? 'border-indigo-600 bg-indigo-50/40'
+                        : 'border-slate-200 hover:border-indigo-300'
+                  }"
+                >
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-bold text-slate-900 text-sm">${escapeHtml(t.name)}</span>
+                    <span class="font-extrabold text-indigo-600 text-base">${formatCurrency(t.price)}</span>
+                  </div>
+                  <p class="text-xs text-slate-500 mb-2">${escapeHtml(t.description)}</p>
+                  <div class="flex items-center justify-between text-[11px]">
+                    <span class="text-slate-400">??銝? ${t.quota} ??/span>
+                    <span class="font-semibold ${rem > 0 ? 'text-emerald-600' : 'text-rose-600'}">
+                      ${rem > 0 ? `撠? ${rem} ? : '撌脤?皛?}
+                    </span>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+
+          <!-- 2. 憛怠神?勗?銵典 -->
+          ${!state.user ? `
+            <div class="p-5 rounded-2xl bg-indigo-50 border border-indigo-100 text-center">
+              <p class="text-sm font-semibold text-indigo-950 mb-1">隢??餃?酉???∩誑?脰??勗?</p>
+              <p class="text-xs text-indigo-700 mb-4">?餃敺?芸?撣嗅?犖?箸鞈????勗甈曉?鈭Ⅳ????游??QR Code ?餃?蟡典</p>
+              <div class="flex justify-center gap-3">
+                <button onclick="window.app.openAuthModal('login')" class="px-4 py-2 rounded-xl bg-indigo-600 text-white text-xs font-bold hover:bg-indigo-700 transition">
+                  蝡?餃 / 閮餃?
+                </button>
+              </div>
+            </div>
+          ` : `
+            <form id="event-registration-form" onsubmit="window.app.submitRegistration(event)" class="space-y-4">
+              <div class="text-xs font-bold text-slate-700 uppercase tracking-wider pt-2 border-t border-slate-100">
+                2. 摮詨?箸?舐窗鞈?
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">?祕憪? <span class="text-rose-500">*</span></label>
+                <input type="text" name="attendee_name" required value="${escapeHtml(prefillName)}" placeholder="隢撓?交??撖血??? class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-600" />
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">?舐窗?? <span class="text-rose-500">*</span></label>
+                  <input type="tel" name="attendee_phone" required value="${escapeHtml(prefillPhone)}" placeholder="0912-345-678" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-600" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">?餃?靽∠拳 <span class="text-rose-500">*</span></label>
+                  <input type="email" name="attendee_email" required value="${escapeHtml(prefillEmail)}" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-600" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">???桐?嚗飛?∴??砍?迂</label>
+                <input type="text" name="attendee_org" value="${escapeHtml(prefillOrg)}" placeholder="?詨‵" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-600" />
+              </div>
+
+              ${customFields.length > 0 ? `
+                <div class="text-xs font-bold text-slate-700 uppercase tracking-wider pt-3 border-t border-slate-100">
+                  3. 瘣餃?撠惇隤踵甈?
+                </div>
+                ${customFields.map(field => renderCustomFormField(field)).join('')}
+              ` : ''}
+
+              <div class="pt-4">
+                <button
+                  type="submit"
+                  ${!selectedTicket || selectedTicket.registered_count >= selectedTicket.quota || ev.status === 'closed' ? 'disabled' : ''}
+                  class="w-full py-3.5 px-6 rounded-xl bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-300 text-white font-bold text-sm shadow-md shadow-indigo-100 transition"
+                >
+                  ${selectedTicket && selectedTicket.price > 0
+                    ? `蝣箄???勗?嚗?隞?${formatCurrency(selectedTicket.price)}嚗
+                    : '蝣箄??祥?勗?嚗??喲??摮巨?賂?'}
+                </button>
+              </div>
+            </form>
+          `}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderCustomFormField(field) {
+  const reqBadge = field.required ? '<span class="text-rose-500">*</span>' : '';
+  const reqAttr = field.required ? 'required' : '';
+  const fieldName = `custom_${field.id}`;
+
+  if (field.type === 'select') {
+    const opts = Array.isArray(field.options) ? field.options : [];
+    return `
+      <div>
+        <label class="block text-xs font-semibold text-slate-700 mb-1">${escapeHtml(field.label)} ${reqBadge}</label>
+        <select name="${escapeHtml(fieldName)}" ${reqAttr} class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm bg-white focus:outline-none focus:border-indigo-600">
+          <option value="">隢??..</option>
+          ${opts.map(o => `<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join('')}
+        </select>
+      </div>
+    `;
+  }
+
+  if (field.type === 'textarea') {
+    return `
+      <div>
+        <label class="block text-xs font-semibold text-slate-700 mb-1">${escapeHtml(field.label)} ${reqBadge}</label>
+        <textarea name="${escapeHtml(fieldName)}" rows="3" ${reqAttr} class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-600"></textarea>
+      </div>
+    `;
+  }
+
+  return `
+    <div>
+      <label class="block text-xs font-semibold text-slate-700 mb-1">${escapeHtml(field.label)} ${reqBadge}</label>
+      <input type="text" name="${escapeHtml(fieldName)}" ${reqAttr} class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-600" />
+    </div>
+  `;
+}
+
+// ============================================================================
+// 6. ?撠?嚗??巨?貉??勗?蝝??(My Tickets & Payment Report)
+// ============================================================================
+function renderMyTicketsView() {
+  if (!state.user) {
+    return `
+      <div class="max-w-lg mx-auto bg-white rounded-3xl border border-slate-200 p-10 text-center my-8">
+        <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mx-auto mb-4 text-2xl">?</div>
+        <h2 class="text-xl font-bold text-slate-900 mb-2">?餃隞交???????餃?蟡典</h2>
+        <p class="text-sm text-slate-500 mb-6">?餃敺?舀閰Ｗ?????勗甈曉董??鈭Ⅳ嚗蒂?冽暑??游蝷箏?撅?QR Code 敹恍?啜?/p>
+        <button onclick="window.app.openAuthModal('login')" class="px-6 py-3 rounded-xl bg-indigo-600 text-white font-bold text-sm hover:bg-indigo-700 transition">
+          蝡?餃?
+        </button>
+      </div>
+    `;
+  }
+
+  const list = state.myRegistrations;
+
+  return `
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+      <div>
+        <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900">???勗?蝝???餃?蟡典冗</h1>
+        <p class="text-sm text-slate-500 mt-1">蝞∠?撌脣??瘣餃??‵撖恍?銵甈曉??梧?隞亙??箇內?曉?勗 QR Code ?餃?蟡典</p>
+      </div>
+      <button onclick="window.app.openProfileModal()" class="px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 hover:border-indigo-300 text-sm font-semibold transition">
+        ?? 靽格?犖?身?舐窗鞈?
+      </button>
+    </div>
+
+    ${list.length === 0 ? `
+      <div class="bg-white rounded-3xl border border-slate-200 p-12 text-center">
+        <p class="text-slate-500 mb-4">?函???∩遙雿????/p>
+        <button onclick="window.app.navigateTo('explore')" class="px-5 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold text-sm">
+          ???Ｙ揣餈?瘣餃?
+        </button>
+      </div>
+    ` : `
+      <div class="space-y-5">
+        ${list.map(reg => renderMyRegistrationCard(reg)).join('')}
+      </div>
+    `}
+  `;
+}
+
+function renderMyRegistrationCard(reg) {
+  const ev = reg.events || {};
+  const tk = reg.ticket_types || {};
+  const bankInfo = ev.bank_info || {
+    bank_name: '?控?銵?(808)',
+    branch: '?平??,
+    account_name: 'EventPulse 瘣餃??勗?撟喳',
+    account_number: '0123-940-056789'
+  };
+
+  const statusBadgeMap = {
+    pending_payment: '<span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800">??敺甈曉???/span>',
+    pending_verification: '<span class="px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800">?? 撌脣??勗甈橘?敺??啣祟?詨?撣喉?</span>',
+    confirmed: reg.checked_in_at
+      ? '<span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">??撌脩?游?唳??/span>'
+      : '<span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">??儭??勗???嚗歇?貊?餃?蟡典嚗?/span>',
+    cancelled: '<span class="px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-500">撌脣?瘨??/span>'
+  };
+
+  return `
+    <div class="bg-white rounded-3xl border border-slate-200 p-6 md:p-8 shadow-sm">
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-4 mb-4 border-b border-slate-100">
+        <div class="flex items-center gap-3">
+          ${statusBadgeMap[reg.status] || ''}
+          <span class="text-xs text-slate-400">閮撱箇?嚗?{formatDateTime(reg.created_at)}</span>
+        </div>
+        <div class="text-sm font-bold text-indigo-600">
+          蟡函車嚗?{escapeHtml(tk.name || '')}嚗?{formatCurrency(reg.amount)}嚗?        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <div class="lg:col-span-7 space-y-2">
+          <h3 class="text-xl font-extrabold text-slate-900">${escapeHtml(ev.title || '瘣餃?')}</h3>
+          <div class="text-xs text-slate-600 space-y-1">
+            <div>?? 瘣餃???嚗?{formatDateTime(ev.start_time)}</div>
+            <div>?? 瘣餃??圈?嚗?{escapeHtml(ev.location || '')}嚗?{escapeHtml(ev.location_address || '')}嚗?/div>
+            <div>? ?勗?摮詨嚗?{escapeHtml(reg.attendee_name)} / ${escapeHtml(reg.attendee_phone)} / ${escapeHtml(reg.attendee_email)}</div>
+          </div>
+
+          ${reg.payment_last5 ? `
+            <div class="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 text-xs">
+              <span>? 撌脣??勗甈曉董??鈭Ⅳ嚗?strong>${escapeHtml(reg.payment_last5)}</strong>嚗?憿?NT$ ${reg.payment_amount || reg.amount}嚗?/span>
+            </div>
+          ` : ''}
+        </div>
+
+        <div class="lg:col-span-5 flex flex-wrap lg:justify-end gap-3">
+          ${reg.status === 'pending_payment' || reg.status === 'pending_verification' ? `
+            <button
+              onclick="window.app.openPaymentModal('${reg.id}')"
+              class="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs shadow-sm transition"
+            >
+              ? ${reg.status === 'pending_payment' ? '憛怠神?舀狡撣唾?敺?蝣澆??? : '靽格?舀狡?鞈?'}
+            </button>
+          ` : ''}
+
+          ${reg.status === 'confirmed' ? `
+            <button
+              onclick="window.app.openQrTicketModal('${reg.id}')"
+              class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-sm shadow-indigo-100 transition flex items-center gap-1.5"
+            >
+              <span>? ?箇內?曉?勗 QR Code ?餃?蟡典</span>
+            </button>
+          ` : ''}
+
+          ${reg.status !== 'cancelled' && !reg.checked_in_at ? `
+            <button
+              onclick="window.app.openEditRegModal('${reg.id}')"
+              class="px-3.5 py-2.5 rounded-xl border border-slate-200 hover:border-indigo-300 text-slate-700 font-semibold text-xs transition"
+            >
+              ?? 靽格?勗?鞈?
+            </button>
+            <button
+              onclick="window.app.cancelRegistration('${reg.id}')"
+              class="px-3.5 py-2.5 rounded-xl border border-rose-200 hover:bg-rose-50 text-rose-600 font-semibold text-xs transition"
+            >
+              ???勗?
+            </button>
+          ` : ''}
+        </div>
+      </div>
+
+      ${reg.status === 'pending_payment' ? `
+        <div class="mt-5 p-4 rounded-2xl bg-amber-50/80 border border-amber-200/80 text-xs text-amber-900">
+          <div class="font-bold mb-1">? 銝餉齒?桐??舀狡撣單鞈?嚗???撣喳?隢???氬‵撖怠甈曉董??鈭Ⅳ???嚗?/div>
+          <div>?銵?${escapeHtml(bankInfo.bank_name)} ${escapeHtml(bankInfo.branch || '')} 嚚??嗅?嚗?{escapeHtml(bankInfo.account_name)} 嚚?撣唾?嚗?strong class="font-mono text-sm">${escapeHtml(bankInfo.account_number)}</strong></div>
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+// ============================================================================
+// 7. 敺蝞∠?蝟餌絞 (Admin Dashboard: 瘣餃?銝??嗚”?株閮??桀祟?貉??臬)
+// ============================================================================
+function renderAdminView() {
+  const totalEvents = state.events.length;
+  const activeRegs = state.adminRegistrations.filter(r => r.status !== 'cancelled');
+  const pendingVerifyCount = state.adminRegistrations.filter(r => r.status === 'pending_verification').length;
+  const confirmedRevenue = state.adminRegistrations
+    .filter(r => r.status === 'confirmed')
+    .reduce((sum, r) => sum + (r.amount || 0), 0);
+  const checkedInCount = state.adminRegistrations.filter(r => r.checked_in_at).length;
+
+  return `
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+      <div>
+        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-indigo-100 text-indigo-800 text-xs font-bold mb-2">
+          ADMIN CMS ?批??        </div>
+        <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900">銝餉齒?孵??啁恣?葉敹?/h1>
+        <p class="text-sm text-slate-500">蝞∠?瘣餃?銝??嗚閮?”?格?雿祟?詨甈曉?鈭Ⅳ銝血?箏飛?∪???/p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <button onclick="window.app.openEventEditorModal(null)" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-sm transition">
+          嚗??啣?瘣餃??閮”??        </button>
+        <button onclick="window.app.exportRegistrationsCsv()" class="px-4 py-2.5 rounded-xl bg-white border border-slate-200 hover:border-indigo-300 text-slate-700 font-semibold text-sm transition">
+          ? ?臬?勗?? Excel (CSV)
+        </button>
+      </div>
+    </div>
+
+    <!-- 蝯梯?????-->
+    <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+      <div class="bg-white p-5 rounded-2xl border border-slate-200">
+        <div class="text-xs font-semibold text-slate-400">蝮賣暑?甈?/div>
+        <div class="text-2xl font-extrabold text-slate-900 mt-1">${totalEvents}</div>
+      </div>
+      <div class="bg-white p-5 rounded-2xl border border-slate-200">
+        <div class="text-xs font-semibold text-slate-400">???勗?蝮賭犖??/div>
+        <div class="text-2xl font-extrabold text-indigo-600 mt-1">${activeRegs.length}</div>
+      </div>
+      <div class="bg-white p-5 rounded-2xl border border-amber-200 bg-amber-50/30">
+        <div class="text-xs font-semibold text-amber-700">敺祟?詨?撣喟???/div>
+        <div class="text-2xl font-extrabold text-amber-600 mt-1">${pendingVerifyCount}</div>
+      </div>
+      <div class="bg-white p-5 rounded-2xl border border-slate-200">
+        <div class="text-xs font-semibold text-slate-400">撌脩Ⅱ隤甈曄蜇憿?/div>
+        <div class="text-2xl font-extrabold text-emerald-600 mt-1">NT$ ${confirmedRevenue.toLocaleString('zh-TW')}</div>
+      </div>
+      <div class="bg-white p-5 rounded-2xl border border-slate-200">
+        <div class="text-xs font-semibold text-slate-400">撌脩?游?唬犖??/div>
+        <div class="text-2xl font-extrabold text-slate-900 mt-1">${checkedInCount}</div>
+      </div>
+    </div>
+
+    <!-- 敺???? -->
+    <div class="flex gap-2 border-b border-slate-200 mb-6">
+      <button
+        onclick="window.app.setAdminTab('events')"
+        class="px-5 py-3 font-bold text-sm border-b-2 transition ${
+          state.adminTab === 'events'
+            ? 'border-indigo-600 text-indigo-600'
+            : 'border-transparent text-slate-500 hover:text-slate-800'
+        }"
+      >
+        ?? 瘣餃?銝?銝?”?格?雿恣??(${state.events.length})
+      </button>
+      <button
+        onclick="window.app.setAdminTab('registrations')"
+        class="px-5 py-3 font-bold text-sm border-b-2 transition ${
+          state.adminTab === 'registrations'
+            ? 'border-indigo-600 text-indigo-600'
+            : 'border-transparent text-slate-500 hover:text-slate-800'
+        }"
+      >
+        ? ?勗???甈曉?撣喳祟??(${state.adminRegistrations.length})
+      </button>
+    </div>
+
+    ${state.adminTab === 'events' ? renderAdminEventsTable() : renderAdminRegistrationsTable()}
+  `;
+}
+
+function renderAdminEventsTable() {
+  return `
+    <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-sm">
+          <thead>
+            <tr class="bg-slate-50 border-b border-slate-200 text-xs font-bold text-slate-500 uppercase">
+              <th class="py-4 px-6">瘣餃??迂????/th>
+              <th class="py-4 px-4">??</th>
+              <th class="py-4 px-4">銝???/th>
+              <th class="py-4 px-4">蟡函車??憿?瘜?/th>
+              <th class="py-4 px-4">?芾?銵典甈?</th>
+              <th class="py-4 px-6 text-right">蝞∠???</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            ${state.events.map(ev => {
+              const fields = Array.isArray(ev.custom_fields) ? ev.custom_fields : [];
+              const tickets = ev.ticket_types || [];
+              const statusSelectClass =
+                ev.status === 'published' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' :
+                ev.status === 'draft' ? 'bg-slate-100 text-slate-700 border-slate-300' :
+                'bg-rose-50 text-rose-700 border-rose-200';
+
+              return `
+                <tr class="hover:bg-slate-50/80 transition">
+                  <td class="py-4 px-6">
+                    <div class="font-bold text-slate-900">${escapeHtml(ev.title)}</div>
+                    <div class="text-xs text-slate-500 mt-0.5">?? ${formatDateTime(ev.start_time)} 嚚??? ${escapeHtml(ev.location)}</div>
+                  </td>
+                  <td class="py-4 px-4">
+                    <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700">${escapeHtml(ev.category)}</span>
+                  </td>
+                  <td class="py-4 px-4">
+                    <select
+                      onchange="window.app.updateEventStatus('${ev.id}', this.value)"
+                      class="px-3 py-1.5 rounded-xl border text-xs font-bold ${statusSelectClass}"
+                    >
+                      <option value="published" ${ev.status === 'published' ? 'selected' : ''}>? 撌脖???(Published)</option>
+                      <option value="draft" ${ev.status === 'draft' ? 'selected' : ''}>???阮?梯? (Draft)</option>
+                      <option value="closed" ${ev.status === 'closed' ? 'selected' : ''}>? 撌脫甇?(Closed)</option>
+                    </select>
+                  </td>
+                  <td class="py-4 px-4">
+                    <div class="space-y-1 text-xs">
+                      ${tickets.map(t => `
+                        <div>
+                          <span class="font-medium text-slate-700">${escapeHtml(t.name)}</span>
+                          <span class="text-slate-400">(${formatCurrency(t.price)})</span>嚗?                          <span class="font-bold text-indigo-600">${t.registered_count}/${t.quota}</span>
+                        </div>
+                      `).join('')}
+                    </div>
+                  </td>
+                  <td class="py-4 px-4">
+                    <div class="flex flex-wrap gap-1 max-w-xs">
+                      ${fields.length === 0 ? '<span class="text-xs text-slate-400">??祈???/span>' : fields.map(f => `
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-[11px]">${escapeHtml(f.label)}</span>
+                      `).join('')}
+                    </div>
+                  </td>
+                  <td class="py-4 px-6 text-right space-x-2 whitespace-nowrap">
+                    <button
+                      onclick="window.app.openEventEditorModal('${ev.id}')"
+                      class="px-3 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-semibold text-xs transition"
+                    >
+                      ?? 蝺刻摩瘣餃?嚗閮?雿?                    </button>
+                    <button
+                      onclick="window.app.navigateTo('event-detail', '${escapeHtml(ev.slug)}')"
+                      class="px-3 py-1.5 rounded-xl border border-slate-200 hover:border-slate-300 text-slate-600 font-semibold text-xs transition"
+                    >
+                      ?汗?
+                    </button>
+                  </td>
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+function renderAdminRegistrationsTable() {
+  const filtered = state.adminRegistrations.filter(r => {
+    const matchEv = state.adminEventFilter === 'all' || r.event_id === state.adminEventFilter;
+    const matchSt = state.adminStatusFilter === 'all' || r.status === state.adminStatusFilter;
+    return matchEv && matchSt;
+  });
+
+  return `
+    <!-- 蝭拚??-->
+    <div class="flex flex-wrap items-center gap-3 mb-4">
+      <select
+        onchange="window.app.setAdminEventFilter(this.value)"
+        class="px-3.5 py-2 rounded-xl border border-slate-200 bg-white text-xs font-semibold text-slate-700"
+      >
+        <option value="all">??暑?甈?/option>
+        ${state.events.map(e => `
+          <option value="${e.id}" ${state.adminEventFilter === e.id ? 'selected' : ''}>${escapeHtml(e.title)}</option>
+        `).join('')}
+      </select>
+
+      <select
+        onchange="window.app.setAdminStatusFilter(this.value)"
+        class="px-3.5 py-2 rounded-xl border border-slate-200 bg-white text-xs font-semibold text-slate-700"
+      >
+        <option value="all" ${state.adminStatusFilter === 'all' ? 'selected' : ''}>????桃???/option>
+        <option value="pending_verification" ${state.adminStatusFilter === 'pending_verification' ? 'selected' : ''}>?? 敺祟?詨?撣?(撌脣??勗?鈭Ⅳ)</option>
+        <option value="pending_payment" ${state.adminStatusFilter === 'pending_payment' ? 'selected' : ''}>??敺甈曉???/option>
+        <option value="confirmed" ${state.adminStatusFilter === 'confirmed' ? 'selected' : ''}>??撌脩Ⅱ隤?潛巨??/option>
+        <option value="cancelled" ${state.adminStatusFilter === 'cancelled' ? 'selected' : ''}>??撌脣?瘨?/option>
+      </select>
+    </div>
+
+    <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-sm">
+          <thead>
+            <tr class="bg-slate-50 border-b border-slate-200 text-xs font-bold text-slate-500 uppercase">
+              <th class="py-4 px-5">摮詨鞈?</th>
+              <th class="py-4 px-4">?勗?瘣餃?銝巨蝔?/th>
+              <th class="py-4 px-4">?芾?銵典憛怎??批捆</th>
+              <th class="py-4 px-4">隞狡??鈭Ⅳ撠董</th>
+              <th class="py-4 px-4">蟡典??啁???/th>
+              <th class="py-4 px-5 text-right">撖拇??</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            ${filtered.length === 0 ? `
+              <tr><td colspan="6" class="py-12 text-center text-slate-400">?桀??∠泵??隞嗥??勗?鞈?</td></tr>
+            ` : filtered.map(reg => {
+              const answers = reg.form_answers || {};
+              const answerEntries = Object.entries(answers);
+              return `
+                <tr class="hover:bg-slate-50/70 transition">
+                  <td class="py-4 px-5">
+                    <div class="font-bold text-slate-900">${escapeHtml(reg.attendee_name)}</div>
+                    <div class="text-xs text-slate-500">${escapeHtml(reg.attendee_phone)}</div>
+                    <div class="text-xs text-slate-400">${escapeHtml(reg.attendee_email)}</div>
+                    ${reg.attendee_org ? `<div class="text-xs text-indigo-600 font-medium">${escapeHtml(reg.attendee_org)}</div>` : ''}
+                  </td>
+                  <td class="py-4 px-4">
+                    <div class="font-semibold text-slate-800 text-xs">${escapeHtml(reg.events?.title || '')}</div>
+                    <div class="text-xs text-indigo-600 font-bold mt-0.5">${escapeHtml(reg.ticket_types?.name || '')} (${formatCurrency(reg.amount)})</div>
+                  </td>
+                  <td class="py-4 px-4">
+                    <div class="space-y-1 text-xs max-w-xs">
+                      ${answerEntries.length === 0 ? '<span class="text-slate-400">-</span>' : answerEntries.map(([k, v]) => `
+                        <div><span class="text-slate-400">${escapeHtml(k)}嚗?/span><span class="text-slate-700 font-medium">${escapeHtml(v)}</span></div>
+                      `).join('')}
+                    </div>
+                  </td>
+                  <td class="py-4 px-4 text-xs">
+                    ${reg.amount === 0 ? `
+                      <span class="text-emerald-600 font-semibold">?祥蟡函車</span>
+                    ` : reg.payment_last5 ? `
+                      <div class="p-2 rounded-xl bg-amber-50 border border-amber-200">
+                        <div class="font-bold text-amber-900">敺?蝣潘?<span class="font-mono text-sm">${escapeHtml(reg.payment_last5)}</span></div>
+                        <div class="text-amber-700">?舀狡??嚗T$ ${reg.payment_amount || reg.amount}</div>
+                        ${reg.payment_date ? `<div class="text-amber-600">?交?嚗?{escapeHtml(reg.payment_date)}</div>` : ''}
+                      </div>
+                    ` : `
+                      <span class="text-slate-400">撠??舀狡鞈?</span>
+                    `}
+                  </td>
+                  <td class="py-4 px-4 text-xs">
+                    <div>
+                      ${reg.status === 'confirmed'
+                        ? '<span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold">??撌脫?潛巨??/span>'
+                        : reg.status === 'pending_verification'
+                          ? '<span class="px-2.5 py-1 rounded-full bg-blue-100 text-blue-800 font-bold">?? 敺?撣喳祟??/span>'
+                          : reg.status === 'pending_payment'
+                            ? '<span class="px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 font-bold">??敺甈?/span>'
+                            : '<span class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-500 font-bold">撌脣?瘨?/span>'
+                      }
+                    </div>
+                    <div class="mt-1.5 text-[11px] font-mono text-slate-400">蟡刻?: ${escapeHtml(reg.checkin_token.slice(0, 10))}</div>
+                    ${reg.checked_in_at ? `<div class="text-emerald-600 font-bold mt-0.5">?? 撌脫 ${formatDateTime(reg.checked_in_at)} ?勗</div>` : ''}
+                  </td>
+                  <td class="py-4 px-5 text-right space-x-1.5 whitespace-nowrap">
+                    ${reg.status !== 'confirmed' && reg.status !== 'cancelled' ? `
+                      <button
+                        onclick="window.app.verifyPaymentAndConfirm('${reg.id}')"
+                        class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition"
+                      >
+                        ??蝣箄??嗆狡?貊蟡典
+                      </button>
+                    ` : ''}
+                    ${reg.status === 'confirmed' && !reg.checked_in_at ? `
+                      <button
+                        onclick="window.app.performCheckInByToken('${reg.checkin_token}')"
+                        class="px-3 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold text-xs transition"
+                      >
+                        ?? ??蝪賢
+                      </button>
+                    ` : ''}
+                    ${reg.status !== 'cancelled' ? `
+                      <button
+                        onclick="window.app.adminCancelRegistration('${reg.id}')"
+                        class="px-2.5 py-1.5 rounded-xl text-rose-600 hover:bg-rose-50 text-xs font-semibold transition"
+                      >
+                        ??
+                      </button>
+                    ` : ''}
+                  </td>
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+// ============================================================================
+// 8. ?曉 QR Code ?勗?賊??(Check-in Scanner View)
+// ============================================================================
+function renderCheckinView() {
+  const confirmedRegs = state.adminRegistrations.filter(r => r.status === 'confirmed');
+  const checkedInRegs = confirmedRegs.filter(r => r.checked_in_at);
+
+  return `
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div>
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 text-xs font-bold mb-2">
+            ON-SITE CHECK-IN ?曉?勗?賊蝟餌絞
+          </div>
+          <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900">QR Code ?餃?蟡典?曉?勗??/h1>
+          <p class="text-sm text-slate-500">雿輻??嚗像?選?蝑?⊿??摮詨?箇內銋?QR Code嚗?頛詨蟡刻?嚗??翰?偷??/p>
+        </div>
+        <div class="bg-white px-5 py-3 rounded-2xl border border-slate-200 flex items-center gap-4">
+          <div>
+            <div class="text-xs text-slate-400">?曉撌脣??/ ?蝮賭犖??/div>
+            <div class="text-xl font-extrabold text-indigo-600">${checkedInRegs.length} / ${confirmedRegs.length} ??/div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <!-- 撌血嚗?剜???蟡刻?頛詨 -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm">
+            <h2 class="text-base font-bold text-slate-900 mb-3">? ?飛?⊿?單??? QR Code</h2>
+            <div id="qr-reader" class="w-full rounded-2xl overflow-hidden bg-slate-950 min-h-[260px] flex items-center justify-center text-slate-400 text-xs mb-4">
+              暺?銝?????豢??⊿??摮詨蟡典
+            </div>
+            <div class="flex gap-3">
+              <button
+                onclick="window.app.startQrScanner()"
+                class="flex-1 py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs transition"
+              >
+                ???豢?????              </button>
+              <button
+                onclick="window.app.stopQrScanner()"
+                class="py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs transition"
+              >
+                ???⊿
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm">
+            <h2 class="text-base font-bold text-slate-900 mb-2">?剁? 蟡典撽?蝣?/ 璇Ⅳ瑽撓?交??/h2>
+            <form onsubmit="window.app.handleManualTokenSubmit(event)" class="flex gap-2">
+              <input
+                type="text"
+                id="manual-checkin-token"
+                placeholder="鞎潔????巨?賊?霅Ⅳ (checkin_token)..."
+                class="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 text-sm font-mono focus:outline-none focus:border-indigo-600"
+              />
+              <button type="submit" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm transition">
+                蝡?賊
+              </button>
+            </form>
+            <div id="checkin-result-banner" class="mt-4 hidden"></div>
+          </div>
+        </div>
+
+        <!-- ?喳嚗翰???格?撠?銝?萇偷??-->
+        <div class="lg:col-span-6">
+          <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm">
+            <h2 class="text-base font-bold text-slate-900 mb-4">?? 摮詨?敹恍偷?啣?銵?/h2>
+            <div class="space-y-3 max-h-[520px] overflow-y-auto pr-1">
+              ${confirmedRegs.length === 0 ? `
+                <div class="py-12 text-center text-slate-400 text-sm">?桀?撠撌脫?潛巨?訾?摮詨嚗???勗????啣祟?賊?嚗?/div>
+              ` : confirmedRegs.map(reg => `
+                <div class="p-4 rounded-2xl border ${reg.checked_in_at ? 'bg-emerald-50/50 border-emerald-200' : 'border-slate-200'} flex items-center justify-between gap-3">
+                  <div>
+                    <div class="font-bold text-slate-900 text-sm">${escapeHtml(reg.attendee_name)} <span class="text-xs font-normal text-slate-500">(${escapeHtml(reg.attendee_phone)})</span></div>
+                    <div class="text-xs text-slate-500">${escapeHtml(reg.events?.title || '')} ??${escapeHtml(reg.ticket_types?.name || '')}</div>
+                    <div class="text-[11px] font-mono text-slate-400 mt-0.5">Token: ${escapeHtml(reg.checkin_token)}</div>
+                  </div>
+                  <div>
+                    ${reg.checked_in_at ? `
+                      <span class="px-3 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-bold inline-block">
+                        ??撌脣??(${new Date(reg.checked_in_at).toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' })})
+                      </span>
+                    ` : `
+                      <button
+                        onclick="window.app.performCheckInByToken('${reg.checkin_token}')"
+                        class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-sm transition"
+                      >
+                        暺?蝪賢
+                      </button>
+                    `}
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// ============================================================================
+// 9. 鈭????”?桅?? (Actions & Modals)
+// ============================================================================
+export function setSearchQuery(q) {
+  state.searchQuery = q;
+  renderMainView();
+}
+
+export function setCategory(cat) {
+  state.selectedCategory = cat;
+  renderMainView();
+}
+
+export function resetFilter() {
+  state.searchQuery = '';
+  state.selectedCategory = '?券';
+  renderMainView();
+}
+
+export function selectTicket(ticketId) {
+  state.selectedTicketId = ticketId;
+  renderMainView();
+}
+
+export function setAdminTab(tab) {
+  state.adminTab = tab;
+  renderMainView();
+}
+
+export function setAdminEventFilter(val) {
+  state.adminEventFilter = val;
+  renderMainView();
+}
+
+export function setAdminStatusFilter(val) {
+  state.adminStatusFilter = val;
+  renderMainView();
+}
+
+// ?瘣餃??勗?
+export async function submitRegistration(e) {
+  e.preventDefault();
+  if (!state.user || !state.selectedEvent || !state.selectedTicketId) {
+    showToast('隢??餃銝阡?巨蝔?, 'error');
+    return;
+  }
+
+  const form = e.target;
+  const formData = new FormData(form);
+  const attendee_name = formData.get('attendee_name')?.toString().trim() || '';
+  const attendee_phone = formData.get('attendee_phone')?.toString().trim() || '';
+  const attendee_email = formData.get('attendee_email')?.toString().trim() || '';
+  const attendee_org = formData.get('attendee_org')?.toString().trim() || '';
+
+  const customFields = Array.isArray(state.selectedEvent.custom_fields) ? state.selectedEvent.custom_fields : [];
+  const form_answers = {};
+  for (const f of customFields) {
+    form_answers[f.label] = formData.get(`custom_${f.id}`)?.toString().trim() || '';
+  }
+
+  const ticket = (state.selectedEvent.ticket_types || []).find(t => t.id === state.selectedTicketId);
+  const price = ticket ? ticket.price : 0;
+
+  // ?郊?湔??身?舐窗鞈?
+  await supabase
+    .from('profiles')
+    .update({
+      full_name: attendee_name,
+      phone: attendee_phone,
+      organization: attendee_org,
+      updated_at: new Date().toISOString()
+    })
+    .eq('id', state.user.id);
+
+  const { data, error } = await supabase
+    .from('registrations')
+    .insert({
+      event_id: state.selectedEvent.id,
+      ticket_type_id: state.selectedTicketId,
+      user_id: state.user.id,
+      attendee_name,
+      attendee_email,
+      attendee_phone,
+      attendee_org,
+      form_answers,
+      amount: price,
+      status: price === 0 ? 'confirmed' : 'pending_payment',
+      payment_method: price === 0 ? 'free' : 'bank_transfer'
+    })
+    .select('*')
+    .single();
+
+  if (error) {
+    showToast('?勗?憭望?嚗? + error.message, 'error');
+    return;
+  }
+
+  await fetchEvents();
+  await ensureProfile();
+
+  if (price === 0) {
+    showToast('?祥?勗???嚗歇?箸?貊撠惇 QR Code ?餃?蟡典', 'success');
+    await navigateTo('my-tickets');
+    if (data?.id) openQrTicketModal(data.id);
+  } else {
+    showToast('?勗?閮撌脣遣蝡?隢??甈曆蒂憛怠神撣唾?敺?蝣澆???, 'success');
+    await navigateTo('my-tickets');
+    if (data?.id) openPaymentModal(data.id);
+  }
+}
+
+// ???舀狡敺?蝣澆???Modal
+export function openPaymentModal(regId) {
+  const reg = state.myRegistrations.find(r => r.id === regId);
+  if (!reg) return;
+  const ev = reg.events || {};
+  const bankInfo = ev.bank_info || {
+    bank_name: '?控?銵?(808)',
+    branch: '?平??,
+    account_name: 'EventPulse 瘣餃??勗?撟喳',
+    account_number: '0123-940-056789'
+  };
+
+  const today = new Date().toISOString().slice(0, 10);
+  openModal(`
+    <div class="p-6 md:p-8">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-xl font-extrabold text-slate-900">? ?銵甈橘?頧董?</h3>
+        <button onclick="window.app.closeModal()" class="text-slate-400 hover:text-slate-600 text-xl">??/button>
+      </div>
+      <div class="p-4 rounded-2xl bg-indigo-50 border border-indigo-100 text-xs text-indigo-950 space-y-1 mb-6">
+        <div class="font-bold text-indigo-700 mb-1">?舀狡??撣單鞈?</div>
+        <div>?銵?蝔梧?<strong>${escapeHtml(bankInfo.bank_name)} ${escapeHtml(bankInfo.branch || '')}</strong></div>
+        <div>?嗅?嚗?strong>${escapeHtml(bankInfo.account_name)}</strong></div>
+        <div>頧董撣唾?嚗?strong class="font-mono text-sm text-indigo-700">${escapeHtml(bankInfo.account_number)}</strong></div>
+        <div>????嚗?strong class="text-sm text-rose-600">NT$ ${reg.amount}</strong></div>
+      </div>
+
+      <form onsubmit="window.app.submitPaymentReport(event, '${reg.id}')" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">?函?頧董撣唾?敺?蝣?<span class="text-rose-500">*</span></label>
+          <input
+            type="text"
+            name="payment_last5"
+            required
+            maxlength="5"
+            pattern="[0-9]{5}"
+            value="${escapeHtml(reg.payment_last5 || '')}"
+            placeholder="靘?嚗?2345 (隢撓??5 雿摮?"
+            class="w-full px-4 py-2.5 rounded-xl border border-slate-200 font-mono text-base focus:outline-none focus:border-indigo-600"
+          />
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">撖阡??舀狡?? (NT$) <span class="text-rose-500">*</span></label>
+            <input type="number" name="payment_amount" required value="${reg.payment_amount || reg.amount}" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">?舀狡?交? <span class="text-rose-500">*</span></label>
+            <input type="date" name="payment_date" required value="${escapeHtml(reg.payment_date || today)}" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm" />
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">?舀狡?酉嚗憛恬?</label>
+          <input type="text" name="payment_note" value="${escapeHtml(reg.payment_note || '')}" placeholder="憒??寞?撠董隤芣?隢‵撖? class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm" />
+        </div>
+        <div class="flex justify-end gap-3 pt-4">
+          <button type="button" onclick="window.app.closeModal()" class="px-4 py-2.5 rounded-xl bg-slate-100 text-slate-600 text-xs font-semibold">??</button>
+          <button type="submit" class="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-sm">??舀狡?</button>
+        </div>
+      </form>
+    </div>
+  `);
+}
+
+export async function submitPaymentReport(e, regId) {
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const payment_last5 = fd.get('payment_last5')?.toString().trim() || '';
+  const payment_amount = parseInt(fd.get('payment_amount')?.toString() || '0', 10);
+  const payment_date = fd.get('payment_date')?.toString() || '';
+  const payment_note = fd.get('payment_note')?.toString().trim() || '';
+
+  const { error } = await supabase
+    .from('registrations')
+    .update({
+      payment_last5,
+      payment_amount,
+      payment_date,
+      payment_note,
+      status: 'pending_verification',
+      payment_reported_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    })
+    .eq('id', regId);
+
+  if (error) {
+    showToast('?憭望?嚗? + error.message, 'error');
+    return;
+  }
+
+  closeModal();
+  showToast('?舀狡鞈?撌脫??嚗?銝餉齒?桐??詨?敺??潮摮巨??, 'success');
+  await fetchMyRegistrations();
+  renderMainView();
+}
+
+// ?? QR Code ?餃?蟡典 Modal
+export async function openQrTicketModal(regId) {
+  const reg = state.myRegistrations.find(r => r.id === regId);
+  if (!reg) return;
+  const ev = reg.events || {};
+  const tk = reg.ticket_types || {};
+
+  const qrDataUrl = await QRCode.toDataURL(reg.checkin_token, {
+    width: 260,
+    margin: 2,
+    color: { dark: '#1e1b4b', light: '#ffffff' }
+  });
+
+  openModal(`
+    <div class="p-6 md:p-8 text-center">
+      <div class="flex justify-between items-center mb-4">
+        <span class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold">EVENTPULSE ?餃??亙蟡典</span>
+        <button onclick="window.app.closeModal()" class="text-slate-400 hover:text-slate-600 text-xl">??/button>
+      </div>
+      <h3 class="text-lg font-extrabold text-slate-900 mb-1">${escapeHtml(ev.title || '')}</h3>
+      <p class="text-xs text-indigo-600 font-bold mb-4">${escapeHtml(tk.name || '')} 嚚?摮詨嚗?{escapeHtml(reg.attendee_name)}</p>
+
+      <div class="inline-block p-4 rounded-3xl bg-white border-2 border-indigo-100 shadow-inner mb-4">
+        <img src="${qrDataUrl}" alt="QR Code Ticket" class="w-56 h-56 mx-auto" />
+      </div>
+
+      <div class="bg-slate-50 rounded-2xl p-3 mb-4 text-xs">
+        <div class="text-slate-400 mb-0.5">?臭??勗?賊撽?蝣?(Check-in Token)</div>
+        <div class="font-mono font-bold text-slate-800 text-sm select-all">${escapeHtml(reg.checkin_token)}</div>
+      </div>
+
+      <div class="text-xs text-slate-500 space-y-1 text-left bg-slate-50 p-4 rounded-2xl mb-5">
+        <div>?? ??嚗?{formatDateTime(ev.start_time)}</div>
+        <div>?? ?圈?嚗?{escapeHtml(ev.location || '')}</div>
+        <div>?? ???${reg.checked_in_at ? `撌脫 ${formatDateTime(reg.checked_in_at)} 摰??勗` : '?芸?堆?隢?亙?蝷箸迨 QR Code嚗?}</div>
+      </div>
+
+      <button onclick="window.app.closeModal()" class="w-full py-2.5 rounded-xl bg-indigo-600 text-white font-bold text-xs">
+        ??蟡典閬?
+      </button>
+    </div>
+  `);
+}
+
+// 靽格?勗?鞈? Modal
+export function openEditRegModal(regId) {
+  const reg = state.myRegistrations.find(r => r.id === regId);
+  if (!reg) return;
+  const answers = reg.form_answers || {};
+
+  openModal(`
+    <div class="p-6 md:p-8">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-extrabold text-slate-900">?? 靽格?勗??舐窗?”?株???/h3>
+        <button onclick="window.app.closeModal()" class="text-slate-400 hover:text-slate-600">??/button>
+      </div>
+      <form onsubmit="window.app.saveEditedRegistration(event, '${reg.id}')" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">憪?</label>
+          <input type="text" name="attendee_name" required value="${escapeHtml(reg.attendee_name)}" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-sm" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">?舐窗?餉店</label>
+          <input type="text" name="attendee_phone" required value="${escapeHtml(reg.attendee_phone)}" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-sm" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">???桐?嚗??/label>
+          <input type="text" name="attendee_org" value="${escapeHtml(reg.attendee_org || '')}" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-sm" />
+        </div>
+        ${Object.entries(answers).map(([label, val]) => `
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">${escapeHtml(label)}</label>
+            <input type="text" name="ans_${escapeHtml(label)}" value="${escapeHtml(val)}" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-sm" />
+          </div>
+        `).join('')}
+        <div class="flex justify-end gap-2 pt-3">
+          <button type="button" onclick="window.app.closeModal()" class="px-4 py-2 rounded-xl bg-slate-100 text-slate-600 text-xs font-semibold">??</button>
+          <button type="submit" class="px-5 py-2 rounded-xl bg-indigo-600 text-white text-xs font-bold">?脣?靽格</button>
+        </div>
+      </form>
+    </div>
+  `);
+}
+
+export async function saveEditedRegistration(e, regId) {
+  e.preventDefault();
+  const reg = state.myRegistrations.find(r => r.id === regId);
+  if (!reg) return;
+  const fd = new FormData(e.target);
+  const newAnswers = {};
+  for (const k of Object.keys(reg.form_answers || {})) {
+    newAnswers[k] = fd.get(`ans_${k}`)?.toString().trim() || '';
+  }
+
+  const { error } = await supabase
+    .from('registrations')
+    .update({
+      attendee_name: fd.get('attendee_name')?.toString().trim() || '',
+      attendee_phone: fd.get('attendee_phone')?.toString().trim() || '',
+      attendee_org: fd.get('attendee_org')?.toString().trim() || '',
+      form_answers: newAnswers,
+      updated_at: new Date().toISOString()
+    })
+    .eq('id', regId);
+
+  if (error) {
+    showToast('?湔憭望?嚗? + error.message, 'error');
+    return;
+  }
+
+  closeModal();
+  showToast('?勗?鞈?撌脫??, 'success');
+  await fetchMyRegistrations();
+  renderMainView();
+}
+
+export async function cancelRegistration(regId) {
+  const { error } = await supabase
+    .from('registrations')
+    .update({ status: 'cancelled', updated_at: new Date().toISOString() })
+    .eq('id', regId);
+
+  if (error) {
+    showToast('??憭望?嚗? + error.message, 'error');
+    return;
+  }
+  showToast('撌脣?瘨府蝑?蒂???', 'info');
+  await Promise.all([fetchEvents(), fetchMyRegistrations()]);
+  renderMainView();
+}
+
+// ============================================================================
+// 10. 敺蝞∠??? (撠董蝣箄??????嗥??憓?蝺刻摩瘣餃??閮”?柴SV ?臬)
+// ============================================================================
+export async function verifyPaymentAndConfirm(regId) {
+  const { error } = await supabase
+    .from('registrations')
+    .update({
+      status: 'confirmed',
+      payment_verified_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    })
+    .eq('id', regId);
+
+  if (error) {
+    showToast('撖拇?湔憭望?嚗? + error.message, 'error');
+    return;
+  }
+
+  showToast('撌脩Ⅱ隤甈曆蒂?貊摮詨 QR Code ?餃?蟡典嚗?, 'success');
+  await fetchAdminRegistrations();
+  renderMainView();
+}
+
+export async function adminCancelRegistration(regId) {
+  const { error } = await supabase
+    .from('registrations')
+    .update({ status: 'cancelled', updated_at: new Date().toISOString() })
+    .eq('id', regId);
+
+  if (error) {
+    showToast('??憭望?嚗? + error.message, 'error');
+    return;
+  }
+  showToast('撌脣?瘨府蝑??, 'info');
+  await Promise.all([fetchEvents(), fetchAdminRegistrations()]);
+  renderMainView();
+}
+
+export async function updateEventStatus(eventId, newStatus) {
+  const { error } = await supabase
+    .from('events')
+    .update({ status: newStatus, updated_at: new Date().toISOString() })
+    .eq('id', eventId);
+
+  if (error) {
+    showToast('???啣仃??' + error.message, 'error');
+    return;
+  }
+  showToast('瘣餃?銝??歇?湔', 'success');
+  await fetchEvents();
+}
+
+// ???啣?嚗楊頛舀暑???芾?銵典甈?撱箸???Modal
+export function openEventEditorModal(eventId = null) {
+  const existing = eventId ? state.events.find(e => e.id === eventId) : null;
+  state.editingEvent = existing
+    ? JSON.parse(JSON.stringify(existing))
+    : {
+        id: null,
+        title: '',
+        slug: `event-${Date.now().toString().slice(-6)}`,
+        subtitle: '',
+        category: '撌乩???,
+        description: '',
+        speaker_name: '',
+        speaker_title: '',
+        speaker_bio: '',
+        cover_image_url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80',
+        location: '?啣?撣縑蝢拙??訾??菜銝剖?',
+        location_address: '?啣?撣縑蝢拙??曆?頝?100 ??,
+        start_time: '2026-12-12T14:00',
+        end_time: '2026-12-12T17:00',
+        reg_end_time: '2026-12-11T23:59',
+        status: 'published',
+        is_featured: false,
+        custom_fields: [
+          { id: 'job_title', label: '?桀??瑞迂', type: 'text', required: true },
+          { id: 'dietary', label: '擗??瘙?, type: 'select', required: true, options: ['?琿?', '蝝?', '銝?皞?'] }
+        ],
+        ticket_types: [
+          { name: '銝?砍?巨', description: '?急暑??渲?雓儔??', price: 800, quota: 40 }
+        ]
+      };
+
+  renderEventEditorModalContent();
+}
+
+function renderEventEditorModalContent() {
+  const ev = state.editingEvent;
+  const startLocal = ev.start_time ? new Date(ev.start_time).toISOString().slice(0, 16) : '2026-12-12T14:00';
+  const endLocal = ev.end_time ? new Date(ev.end_time).toISOString().slice(0, 16) : '2026-12-12T17:00';
+
+  openModal(`
+    <div class="p-6 md:p-8 max-h-[85vh] overflow-y-auto">
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="text-xl font-extrabold text-slate-900">${ev.id ? '?? 蝺刻摩瘣餃??閮?”?? : '嚗??啣?瘣餃??閮?”??}</h3>
+        <button onclick="window.app.closeModal()" class="text-slate-400 hover:text-slate-600 text-xl">??/button>
+      </div>
+
+      <form id="admin-event-form" onsubmit="window.app.saveEventFromModal(event)" class="space-y-5 text-sm">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="md:col-span-2">
+            <label class="block text-xs font-bold text-slate-700 mb-1">瘣餃??迂 <span class="text-rose-500">*</span></label>
+            <input type="text" name="title" required value="${escapeHtml(ev.title)}" class="w-full px-3.5 py-2 rounded-xl border border-slate-200" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">瘣餃???</label>
+            <select name="category" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 bg-white">
+              ${['雓漣', '撌乩???, '隤脩?', '隢?', '蝷曄黎??'].map(c => `<option value="${c}" ${ev.category === c ? 'selected' : ''}>${c}</option>`).join('')}
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">?舀?憿?蝪∠鈭桅?</label>
+          <input type="text" name="subtitle" value="${escapeHtml(ev.subtitle)}" class="w-full px-3.5 py-2 rounded-xl border border-slate-200" />
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">????</label>
+            <input type="datetime-local" name="start_time" required value="${startLocal}" class="w-full px-3.5 py-2 rounded-xl border border-slate-200" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">蝯???</label>
+            <input type="datetime-local" name="end_time" required value="${endLocal}" class="w-full px-3.5 py-2 rounded-xl border border-slate-200" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">?游?迂</label>
+            <input type="text" name="location" required value="${escapeHtml(ev.location)}" class="w-full px-3.5 py-2 rounded-xl border border-slate-200" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">?游閰喟敦?啣?</label>
+            <input type="text" name="location_address" value="${escapeHtml(ev.location_address || '')}" class="w-full px-3.5 py-2 rounded-xl border border-slate-200" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">雓葦憪?</label>
+            <input type="text" name="speaker_name" value="${escapeHtml(ev.speaker_name || '')}" class="w-full px-3.5 py-2 rounded-xl border border-slate-200" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">雓葦?剝?</label>
+            <input type="text" name="speaker_title" value="${escapeHtml(ev.speaker_title || '')}" class="w-full px-3.5 py-2 rounded-xl border border-slate-200" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">撠??蝬脣? (URL)</label>
+          <input type="url" name="cover_image_url" value="${escapeHtml(ev.cover_image_url || '')}" class="w-full px-3.5 py-2 rounded-xl border border-slate-200" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">瘣餃?閰喟敦隞晶?降蝔?/label>
+          <textarea name="description" rows="4" class="w-full px-3.5 py-2 rounded-xl border border-slate-200">${escapeHtml(ev.description || '')}</textarea>
+        </div>
+
+        <!-- ??蟡函車閮剖?? -->
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-extrabold text-slate-800 uppercase">??儭?蟡函車??憿身摰?/span>
+            <button type="button" onclick="window.app.addTicketRowInEditor()" class="px-3 py-1 rounded-lg bg-indigo-50 text-indigo-700 font-bold text-xs">+ ?啣?蟡函車</button>
+          </div>
+          <div id="editor-tickets-container" class="space-y-2">
+            ${(ev.ticket_types || []).map((t, idx) => `
+              <div class="grid grid-cols-12 gap-2 items-center bg-white p-2.5 rounded-xl border border-slate-200">
+                <input type="text" placeholder="蟡函車?迂" value="${escapeHtml(t.name)}" onchange="window.app.updateEditorTicket(${idx}, 'name', this.value)" class="col-span-4 px-2.5 py-1.5 rounded-lg border border-slate-200 text-xs" required />
+                <input type="number" placeholder="蟡典(0=?祥)" value="${t.price}" onchange="window.app.updateEditorTicket(${idx}, 'price', this.value)" class="col-span-3 px-2.5 py-1.5 rounded-lg border border-slate-200 text-xs" required />
+                <input type="number" placeholder="??" value="${t.quota}" onchange="window.app.updateEditorTicket(${idx}, 'quota', this.value)" class="col-span-2 px-2.5 py-1.5 rounded-lg border border-slate-200 text-xs" required />
+                <input type="text" placeholder="蟡函車隤芣?" value="${escapeHtml(t.description || '')}" onchange="window.app.updateEditorTicket(${idx}, 'description', this.value)" class="col-span-3 px-2.5 py-1.5 rounded-lg border border-slate-200 text-xs" />
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- ???芾?銵典甈?撱箸???-->
+        <div class="p-4 rounded-2xl bg-indigo-50/40 border border-indigo-100 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-extrabold text-indigo-950 uppercase">?? ?芾??勗?銵典甈? (Custom Form Builder)</span>
+            <button type="button" onclick="window.app.addCustomFieldInEditor()" class="px-3 py-1 rounded-lg bg-indigo-600 text-white font-bold text-xs">+ ?啣??芾???甈?</button>
+          </div>
+          <div class="space-y-2">
+            ${(ev.custom_fields || []).map((f, idx) => `
+              <div class="grid grid-cols-12 gap-2 items-center bg-white p-2.5 rounded-xl border border-indigo-100">
+                <input type="text" placeholder="甈?憿?迂" value="${escapeHtml(f.label)}" onchange="window.app.updateEditorCustomField(${idx}, 'label', this.value)" class="col-span-4 px-2.5 py-1.5 rounded-lg border border-slate-200 text-xs" required />
+                <select onchange="window.app.updateEditorCustomField(${idx}, 'type', this.value)" class="col-span-3 px-2 py-1.5 rounded-lg border border-slate-200 text-xs bg-white">
+                  <option value="text" ${f.type === 'text' ? 'selected' : ''}>?株??? (Text)</option>
+                  <option value="textarea" ${f.type === 'textarea' ? 'selected' : ''}>憭??? (Textarea)</option>
+                  <option value="select" ${f.type === 'select' ? 'selected' : ''}>銝??桅 (Select)</option>
+                </select>
+                <input type="text" placeholder="?桅?賊? (隞仿???)" value="${escapeHtml((f.options || []).join(','))}" onchange="window.app.updateEditorCustomField(${idx}, 'options', this.value)" class="col-span-3 px-2.5 py-1.5 rounded-lg border border-slate-200 text-xs" />
+                <label class="col-span-1 flex items-center gap-1 text-[11px] text-slate-600">
+                  <input type="checkbox" ${f.required ? 'checked' : ''} onchange="window.app.updateEditorCustomField(${idx}, 'required', this.checked)" />敹‵
+                </label>
+                <button type="button" onclick="window.app.removeCustomFieldInEditor(${idx})" class="col-span-1 text-rose-500 hover:text-rose-700 text-xs font-bold">?芷</button>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="flex justify-end gap-3 pt-4 border-t border-slate-100">
+          <button type="button" onclick="window.app.closeModal()" class="px-5 py-2.5 rounded-xl bg-slate-100 text-slate-600 text-xs font-semibold">??</button>
+          <button type="submit" class="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-sm">?脣?銝衣雿暑?身摰?/button>
+        </div>
+      </form>
+    </div>
+  `);
+}
+
+function syncEditorFormInputs() {
+  const form = document.getElementById('admin-event-form');
+  if (!form || !state.editingEvent) return;
+  const fd = new FormData(form);
+  state.editingEvent.title = fd.get('title')?.toString() || state.editingEvent.title;
+  state.editingEvent.category = fd.get('category')?.toString() || state.editingEvent.category;
+  state.editingEvent.subtitle = fd.get('subtitle')?.toString() || '';
+  state.editingEvent.location = fd.get('location')?.toString() || '';
+  state.editingEvent.location_address = fd.get('location_address')?.toString() || '';
+  state.editingEvent.speaker_name = fd.get('speaker_name')?.toString() || '';
+  state.editingEvent.speaker_title = fd.get('speaker_title')?.toString() || '';
+  state.editingEvent.cover_image_url = fd.get('cover_image_url')?.toString() || '';
+  state.editingEvent.description = fd.get('description')?.toString() || '';
+}
+
+export function addTicketRowInEditor() {
+  syncEditorFormInputs();
+  state.editingEvent.ticket_types.push({
+    name: '?啁巨蝔?,
+    description: '',
+    price: 500,
+    quota: 30
+  });
+  renderEventEditorModalContent();
+}
+
+export function updateEditorTicket(idx, key, val) {
+  const t = state.editingEvent.ticket_types[idx];
+  if (!t) return;
+  t[key] = key === 'price' || key === 'quota' ? parseInt(val || '0', 10) : val;
+}
+
+export function addCustomFieldInEditor() {
+  syncEditorFormInputs();
+  state.editingEvent.custom_fields.push({
+    id: `field_${Date.now().toString().slice(-4)}`,
+    label: '?啗閮?憿?,
+    type: 'text',
+    required: false,
+    options: []
+  });
+  renderEventEditorModalContent();
+}
+
+export function updateEditorCustomField(idx, key, val) {
+  const f = state.editingEvent.custom_fields[idx];
+  if (!f) return;
+  if (key === 'options') {
+    f.options = String(val).split(',').map(s => s.trim()).filter(Boolean);
+  } else {
+    f[key] = val;
+  }
+}
+
+export function removeCustomFieldInEditor(idx) {
+  syncEditorFormInputs();
+  state.editingEvent.custom_fields.splice(idx, 1);
+  renderEventEditorModalContent();
+}
+
+export async function saveEventFromModal(e) {
+  e.preventDefault();
+  syncEditorFormInputs();
+  const fd = new FormData(e.target);
+  const start_time = new Date(fd.get('start_time')?.toString() || Date.now()).toISOString();
+  const end_time = new Date(fd.get('end_time')?.toString() || Date.now()).toISOString();
+  const ev = state.editingEvent;
+
+  const payload = {
+    title: ev.title,
+    subtitle: ev.subtitle,
+    category: ev.category,
+    description: ev.description,
+    speaker_name: ev.speaker_name,
+    speaker_title: ev.speaker_title,
+    cover_image_url: ev.cover_image_url,
+    location: ev.location,
+    location_address: ev.location_address,
+    start_time,
+    end_time,
+    reg_end_time: start_time,
+    custom_fields: ev.custom_fields,
+    updated_at: new Date().toISOString()
+  };
+
+  if (ev.id) {
+    const { error } = await supabase.from('events').update(payload).eq('id', ev.id);
+    if (error) {
+      showToast('?脣?瘣餃?憭望?嚗? + error.message, 'error');
+      return;
+    }
+    for (const [idx, tk] of (ev.ticket_types || []).entries()) {
+      if (tk.id) {
+        await supabase.from('ticket_types').update({
+          name: tk.name,
+          price: Number(tk.price),
+          quota: Number(tk.quota),
+          description: tk.description || '',
+          sort_order: idx + 1
+        }).eq('id', tk.id);
+      } else {
+        await supabase.from('ticket_types').insert({
+          event_id: ev.id,
+          name: tk.name,
+          price: Number(tk.price),
+          quota: Number(tk.quota),
+          description: tk.description || '',
+          sort_order: idx + 1
+        });
+      }
+    }
+  } else {
+    const { data: created, error } = await supabase
+      .from('events')
+      .insert({
+        ...payload,
+        slug: ev.slug,
+        status: 'published',
+        created_by: state.user?.id || null
+      })
+      .select('*')
+      .single();
+
+    if (error) {
+      showToast('?啣?瘣餃?憭望?嚗? + error.message, 'error');
+      return;
+    }
+
+    for (const [idx, tk] of (ev.ticket_types || []).entries()) {
+      await supabase.from('ticket_types').insert({
+        event_id: created.id,
+        name: tk.name,
+        price: Number(tk.price),
+        quota: Number(tk.quota),
+        description: tk.description || '',
+        sort_order: idx + 1
+      });
+    }
+  }
+
+  closeModal();
+  showToast('瘣餃??閮”?株身摰歇???脣?嚗?, 'success');
+  await fetchEvents();
+}
+
+// ?臬 CSV (??UTF-8 BOM ?舀 Excel ?湔??)
+export function exportRegistrationsCsv() {
+  const rows = state.adminRegistrations;
+  if (!rows.length) {
+    showToast('?桀??∪????臬', 'info');
+    return;
+  }
+
+  const headers = ['閮蝺刻?', '瘣餃??迂', '蟡函車', '摮詨憪?', '?舐窗?餉店', 'Email', '?桐?', '????', '閮???, '?舀狡敺?蝣?, '?勗撽?蝣?, '?曉?勗??', '?芾?甈???'];
+  const csvLines = [headers.join(',')];
+
+  for (const r of rows) {
+    const ansStr = Object.entries(r.form_answers || {})
+      .map(([k, v]) => `${k}:${v}`)
+      .join(' | ');
+    const cols = [
+      r.id,
+      r.events?.title || '',
+      r.ticket_types?.name || '',
+      r.attendee_name,
+      r.attendee_phone,
+      r.attendee_email,
+      r.attendee_org || '',
+      r.amount,
+      r.status,
+      r.payment_last5 || '',
+      r.checkin_token,
+      r.checked_in_at ? formatDateTime(r.checked_in_at) : '?芸??,
+      ansStr
+    ].map(c => `"${String(c ?? '').replace(/"/g, '""')}"`);
+    csvLines.push(cols.join(','));
+  }
+
+  const blob = new Blob(['\uFEFF' + csvLines.join('\n')], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `registrations_${new Date().toISOString().slice(0, 10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('撌脣??Excel (CSV) ?勗??嚗?, 'success');
+}
+
+// ============================================================================
+// 11. ?曉 QR Code ?????(Check-in Verification)
+// ============================================================================
+export async function performCheckInByToken(token) {
+  const cleanToken = (token || '').trim();
+  if (!cleanToken) return;
+
+  const { data: existing, error: findErr } = await supabase
+    .from('registrations')
+    .select('*, events(title), ticket_types(name)')
+    .eq('checkin_token', cleanToken)
+    .maybeSingle();
+
+  const banner = document.getElementById('checkin-result-banner');
+
+  if (findErr || !existing) {
+    showToast('?亦甇斤巨?賊?霅Ⅳ嚗?蝣箄?蟡刻??臬甇?Ⅱ', 'error');
+    if (banner) {
+      banner.className = 'mt-4 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-xs font-bold';
+      banner.textContent = `??撽?憭望?嚗銝蟡刻? "${cleanToken}"`;
+    }
+    return;
+  }
+
+  if (existing.checked_in_at) {
+    const msg = `?? 摮詨??{existing.attendee_name}?歇??${formatDateTime(existing.checked_in_at)} ?勗??隢???亙嚗;
+    showToast(msg, 'error');
+    if (banner) {
+      banner.className = 'mt-4 p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs font-bold';
+      banner.textContent = msg;
+    }
+    return;
+  }
+
+  const nowIso = new Date().toISOString();
+  const { error: updErr } = await supabase
+    .from('registrations')
+    .update({
+      status: 'confirmed',
+      checked_in_at: nowIso,
+      updated_at: nowIso
+    })
+    .eq('id', existing.id);
+
+  if (updErr) {
+    showToast('蝪賢撖怠憭望?嚗? + updErr.message, 'error');
+    return;
+  }
+
+  const okMsg = `???勗??嚗?{existing.attendee_name}??${existing.events?.title || ''} (${existing.ticket_types?.name || ''})`;
+  showToast(okMsg, 'success');
+  await fetchAdminRegistrations();
+  renderMainView();
+
+  const updatedBanner = document.getElementById('checkin-result-banner');
+  if (updatedBanner) {
+    updatedBanner.className = 'mt-4 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm font-bold';
+    updatedBanner.textContent = okMsg;
+  }
+}
+
+export async function handleManualTokenSubmit(e) {
+  e.preventDefault();
+  const input = document.getElementById('manual-checkin-token');
+  if (!input) return;
+  await performCheckInByToken(input.value);
+  input.value = '';
+}
+
+export async function startQrScanner() {
+  if (state.scannerRunning) return;
+  if (!window.Html5Qrcode) {
+    showToast('甇?頛???典?隞塚?隢???閰?, 'info');
+    return;
+  }
+  try {
+    const scanner = new window.Html5Qrcode('qr-reader');
+    state.qrScanner = scanner;
+    state.scannerRunning = true;
+    await scanner.start(
+      { facingMode: 'environment' },
+      { fps: 10, qrbox: { width: 220, height: 220 } },
+      async (decodedText) => {
+        await stopQrScanner();
+        await performCheckInByToken(decodedText);
+      },
+      () => {}
+    );
+  } catch (err) {
+    state.scannerRunning = false;
+    showToast('?⊥????豢??⊿嚗?蝣箄??汗?函璈?????其??寧巨?撓?交?瘀?', 'error');
+  }
+}
+
+export async function stopQrScanner() {
+  if (state.qrScanner && state.scannerRunning) {
+    try {
+      await state.qrScanner.stop();
+      await state.qrScanner.clear();
+    } catch (_) {}
+  }
+  state.scannerRunning = false;
+  state.qrScanner = null;
+}
+
+// ============================================================================
+// 12. ?閮餃???亥??犖鞈? Modal
+// ============================================================================
+export function openAuthModal(mode = 'login') {
+  const isLogin = mode === 'login';
+  openModal(`
+    <div class="p-6 md:p-8">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-xl font-extrabold text-slate-900">${isLogin ? '?嚗恣??餃' : '?祥閮餃??撣唾?'}</h3>
+        <button onclick="window.app.closeModal()" class="text-slate-400 hover:text-slate-600 text-xl">??/button>
+      </div>
+      <p class="text-xs text-slate-500 mb-6">
+        ${isLogin ? '?餃隞亙?暑?恣?巨?貉??脣銝餉齒?孵??? : '閮餃??喳???蝞∠?敺摰擃?甈?嚗?蝑?撽?靽∴?'}
+      </p>
+
+      <form onsubmit="window.app.handleAuthSubmit(event, '${mode}')" class="space-y-4">
+        ${!isLogin ? `
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">?函?憪? <span class="text-rose-500">*</span></label>
+            <input type="text" name="full_name" required placeholder="靘?嚗?撠?" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">?舐窗?? <span class="text-rose-500">*</span></label>
+            <input type="tel" name="phone" required placeholder="0912-345-678" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm" />
+          </div>
+        ` : ''}
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">?餃?靽∠拳 Email <span class="text-rose-500">*</span></label>
+          <input type="email" name="email" required placeholder="you@example.com" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">撖Ⅳ嚗撠?6 蝣潘? <span class="text-rose-500">*</span></label>
+          <input type="password" name="password" required minlength="6" placeholder="?ＴＴＴＴＴＴＴ? class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm" />
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-sm transition">
+          ${isLogin ? '蝡?餃' : '蝡摰?閮餃?銝衣??}
+        </button>
+      </form>
+
+      <div class="mt-5 pt-4 border-t border-slate-100 text-center text-xs text-slate-500">
+        ${isLogin ? `
+          ???董??嚗?          <button onclick="window.app.openAuthModal('signup')" class="text-indigo-600 font-bold hover:underline">暺迨?祥閮餃?</button>
+        ` : `
+          撌脩??董????
+          <button onclick="window.app.openAuthModal('login')" class="text-indigo-600 font-bold hover:underline">餈??餃</button>
+        `}
+      </div>
+    </div>
+  `);
+}
+
+export async function handleAuthSubmit(e, mode) {
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const email = fd.get('email')?.toString().trim() || '';
+  const password = fd.get('password')?.toString() || '';
+
+  if (mode === 'signup') {
+    const full_name = fd.get('full_name')?.toString().trim() || '';
+    const phone = fd.get('phone')?.toString().trim() || '';
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: { data: { full_name, phone } }
+    });
+    if (error) {
+      showToast('閮餃?憭望?嚗? + error.message, 'error');
+      return;
+    }
+    showToast('閮餃???嚗歇?芸??箸?餃', 'success');
+  } else {
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) {
+      showToast('?餃憭望?嚗? + error.message, 'error');
+      return;
+    }
+    showToast('甇∟???嚗?交???, 'success');
+  }
+
+  closeModal();
+  await loadSessionAndProfile();
+  await fetchMyRegistrations();
+  renderMainView();
+}
+
+export function openProfileModal() {
+  if (!state.user) return;
+  const p = state.profile || {};
+  openModal(`
+    <div class="p-6 md:p-8">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-extrabold text-slate-900">?? ?犖?箸鞈?閮剖?</h3>
+        <button onclick="window.app.closeModal()" class="text-slate-400 hover:text-slate-600 text-xl">??/button>
+      </div>
+      <p class="text-xs text-slate-500 mb-5">閮剖?敺??芯??勗?隞颱?瘣餃????芸??‵隞乩??舐窗鞈?</p>
+      <form onsubmit="window.app.saveProfile(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">憪?</label>
+          <input type="text" name="full_name" required value="${escapeHtml(p.full_name || '')}" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-sm" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">?舐窗??</label>
+          <input type="tel" name="phone" value="${escapeHtml(p.phone || '')}" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-sm" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">???桐?嚗?詨?蝔?/label>
+          <input type="text" name="organization" value="${escapeHtml(p.organization || '')}" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-sm" />
+        </div>
+        <div class="flex justify-end gap-2 pt-3">
+          <button type="button" onclick="window.app.closeModal()" class="px-4 py-2 rounded-xl bg-slate-100 text-slate-600 text-xs font-semibold">??</button>
+          <button type="submit" class="px-5 py-2 rounded-xl bg-indigo-600 text-white text-xs font-bold">?脣?閮剖?</button>
+        </div>
+      </form>
+    </div>
+  `);
+}
+
+export async function saveProfile(e) {
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const { error } = await supabase
+    .from('profiles')
+    .update({
+      full_name: fd.get('full_name')?.toString().trim() || '',
+      phone: fd.get('phone')?.toString().trim() || '',
+      organization: fd.get('organization')?.toString().trim() || '',
+      updated_at: new Date().toISOString()
+    })
+    .eq('id', state.user.id);
+
+  if (error) {
+    showToast('?脣?憭望?嚗? + error.message, 'error');
+    return;
+  }
+  closeModal();
+  await ensureProfile();
+  renderNavbar();
+  renderMainView();
+  showToast('?犖?舐窗鞈?撌脫??, 'success');
+}
+
+export async function signOut() {
+  await supabase.auth.signOut();
+  state.user = null;
+  state.profile = null;
+  state.myRegistrations = [];
+  showToast('?典歇摰?餃', 'info');
+  renderNavbar();
+  renderMainView();
+}
+
+// Modal ?批
+export function openModal(htmlContent) {
+  const backdrop = document.getElementById('modal-backdrop');
+  const box = document.getElementById('modal-box');
+  if (!backdrop || !box) return;
+  box.innerHTML = htmlContent;
+  backdrop.classList.remove('hidden');
+  backdrop.classList.add('flex');
+}
+
+export function closeModal() {
+  const backdrop = document.getElementById('modal-backdrop');
+  if (!backdrop) return;
+  backdrop.classList.add('hidden');
+  backdrop.classList.remove('flex');
+}
+
+// 蝟餌絞??????async function initApp() {
+  await loadSessionAndProfile();
+  await fetchEvents();
+  supabase.auth.onAuthStateChange(async () => {
+    await loadSessionAndProfile();
+  });
+}
+
+window.app = {
+  navigateTo,
+  setSearchQuery,
+  setCategory,
+  resetFilter,
+  selectTicket,
+  setAdminTab,
+  setAdminEventFilter,
+  setAdminStatusFilter,
+  submitRegistration,
+  openPaymentModal,
+  submitPaymentReport,
+  openQrTicketModal,
+  openEditRegModal,
+  saveEditedRegistration,
+  cancelRegistration,
+  verifyPaymentAndConfirm,
+  adminCancelRegistration,
+  updateEventStatus,
+  openEventEditorModal,
+  addTicketRowInEditor,
+  updateEditorTicket,
+  addCustomFieldInEditor,
+  updateEditorCustomField,
+  removeCustomFieldInEditor,
+  saveEventFromModal,
+  exportRegistrationsCsv,
+  performCheckInByToken,
+  handleManualTokenSubmit,
+  startQrScanner,
+  stopQrScanner,
+  openAuthModal,
+  handleAuthSubmit,
+  openProfileModal,
+  saveProfile,
+  signOut,
+  closeModal
+};
+
+initApp();
+
+</script>
 </body>
 </html>
+
