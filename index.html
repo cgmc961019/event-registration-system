@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EventPulse 活動通 — 活動／講座／工作坊雲端報名系統</title>
+  <meta name="description" content="結合 GitHub + Vercel + Supabase 打造的現代活動講座報名平台，支援自訂報名表單、匯款回報審核與現場 QR Code 電子票券報到。" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- HTML5 QR Code Scanner -->
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js" defer></script>
+  <!-- Google Fonts: Inter & Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', 'Noto Sans TC', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col selection:bg-indigo-600 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <!-- 品牌 Logo -->
+      <div class="flex items-center gap-6">
+        <button onclick="window.app.navigateTo('explore')" class="flex items-center gap-2.5 text-left group">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center font-extrabold text-lg shadow-sm shadow-indigo-200">
+            E
+          </div>
+          <div>
+            <div class="font-extrabold text-base tracking-tight text-slate-900 group-hover:text-indigo-600 transition">
+              EventPulse <span class="text-indigo-600">活動通</span>
+            </div>
+            <div class="text-[10px] text-slate-400 font-medium -mt-0.5">雲端活動與工作坊報名系統</div>
+          </div>
+        </button>
+
+        <!-- 主選單 -->
+        <nav class="hidden md:flex items-center gap-1">
+          <button data-nav-view="explore" onclick="window.app.navigateTo('explore')" class="px-3.5 py-2 rounded-lg text-sm font-semibold bg-indigo-50 text-indigo-700 transition">
+            探索活動
+          </button>
+          <button data-nav-view="my-tickets" onclick="window.app.navigateTo('my-tickets')" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-50 transition">
+            我的票券與報名
+          </button>
+          <button data-nav-view="admin" onclick="window.app.navigateTo('admin')" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-50 transition">
+            主辦方管理後台
+          </button>
+          <button data-nav-view="checkin" onclick="window.app.navigateTo('checkin')" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-50 transition">
+            現場 QR 報到台
+          </button>
+        </nav>
+      </div>
+
+      <!-- 會員登入狀態區 -->
+      <div id="nav-user-actions" class="flex items-center gap-2"></div>
+    </div>
+
+    <!-- 手機版次選單 -->
+    <div class="md:hidden flex items-center justify-around border-t border-slate-100 bg-white px-2 py-1.5 text-xs">
+      <button data-nav-view="explore" onclick="window.app.navigateTo('explore')" class="px-2.5 py-1.5 rounded-lg font-semibold">探索活動</button>
+      <button data-nav-view="my-tickets" onclick="window.app.navigateTo('my-tickets')" class="px-2.5 py-1.5 rounded-lg font-medium">我的票券</button>
+      <button data-nav-view="admin" onclick="window.app.navigateTo('admin')" class="px-2.5 py-1.5 rounded-lg font-medium">管理後台</button>
+      <button data-nav-view="checkin" onclick="window.app.navigateTo('checkin')" class="px-2.5 py-1.5 rounded-lg font-medium">QR 報到台</button>
+    </div>
+  </header>
+
+  <!-- 主內容渲染容器 -->
+  <main id="app-root" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="py-24 text-center">
+      <div class="inline-block w-8 h-8 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin mb-3"></div>
+      <p class="text-sm text-slate-500">正在連線至 Supabase 雲端資料庫載入活動資料...</p>
+    </div>
+  </main>
+
+  <!-- 頁尾 -->
+  <footer class="bg-white border-t border-slate-200/80 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <div>
+        <strong class="text-slate-800">EventPulse 活動通報名系統</strong> — Powered by GitHub + Vercel + Supabase (ap-northeast-1)
+      </div>
+      <div class="flex gap-4">
+        <button onclick="window.app.navigateTo('explore')" class="hover:text-indigo-600">公開活動首頁</button>
+        <button onclick="window.app.navigateTo('my-tickets')" class="hover:text-indigo-600">學員票券中心</button>
+        <button onclick="window.app.navigateTo('admin')" class="hover:text-indigo-600">後台活動上下架</button>
+        <button onclick="window.app.navigateTo('checkin')" class="hover:text-indigo-600">QR Code 現場核銷</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 通用 Modal 彈窗 -->
+  <div id="modal-backdrop" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 backdrop-blur-sm p-4">
+    <div id="modal-box" class="bg-white rounded-3xl shadow-2xl border border-slate-200 w-full max-w-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200"></div>
+  </div>
+
+  <!-- Toast 通知容器 -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm"></div>
+
+  <!-- 主應用程式邏輯 -->
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
